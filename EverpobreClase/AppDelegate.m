@@ -7,15 +7,31 @@
 //
 
 #import "AppDelegate.h"
+#import "RGSNotebook.h"
+#import "AGTCoreDataStack.h"
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) AGTCoreDataStack *model;
 @end
 
 @implementation AppDelegate
 
+-(void) createDummyDate{
+    RGSNotebook *nb = [RGSNotebook notebookWithName:@"Ex novias"
+                                            context:self.model.context];
+    
+    [self.model saveWithErrorBlock:^(NSError *error) {
+        
+        NSLog(@"La cagamos");
+    }];
+    
+    NSLog(@"%@", nb);
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.model = [AGTCoreDataStack coreDataStackWithModelName:@"EverpobreClase"];
+    
     // Override point for customization after application launch.
     return YES;
 }
