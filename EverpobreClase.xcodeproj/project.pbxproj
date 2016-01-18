@@ -22,6 +22,7 @@
 		2865F4031C4D65490038B6CC /* RGSNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3FB1C4D65490038B6CC /* RGSNote.m */; };
 		2865F4041C4D65490038B6CC /* RGSNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3FD1C4D65490038B6CC /* RGSNotebook.m */; };
 		2865F4051C4D65490038B6CC /* RGSPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3FF1C4D65490038B6CC /* RGSPhoto.m */; };
+		2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		2865F3FD1C4D65490038B6CC /* RGSNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNotebook.m; sourceTree = "<group>"; };
 		2865F3FE1C4D65490038B6CC /* RGSPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSPhoto.h; sourceTree = "<group>"; };
 		2865F3FF1C4D65490038B6CC /* RGSPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSPhoto.m; sourceTree = "<group>"; };
+		2865F4091C4DA0400038B6CC /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
+		2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,7 @@
 		2865F3C41C4AF4890038B6CC /* EverpobreClase */ = {
 			isa = PBXGroup;
 			children = (
+				2865F4081C4DA0360038B6CC /* Controllers */,
 				2865F3ED1C4AF4F30038B6CC /* Modelos */,
 				2865F3C81C4AF4890038B6CC /* AppDelegate.h */,
 				2865F3C91C4AF4890038B6CC /* AppDelegate.m */,
@@ -171,6 +175,15 @@
 				2865F3FF1C4D65490038B6CC /* RGSPhoto.m */,
 			);
 			name = Human;
+			sourceTree = "<group>";
+		};
+		2865F4081C4DA0360038B6CC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2865F4091C4DA0400038B6CC /* AGTCoreDataTableViewController.h */,
+				2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +290,7 @@
 			files = (
 				2865F4051C4D65490038B6CC /* RGSPhoto.m in Sources */,
 				2865F3CD1C4AF4890038B6CC /* ViewController.m in Sources */,
+				2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */,
 				2865F4041C4D65490038B6CC /* RGSNotebook.m in Sources */,
 				2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */,
 				2865F4001C4D65490038B6CC /* _RGSNote.m in Sources */,

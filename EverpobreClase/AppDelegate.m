@@ -21,18 +21,39 @@
     RGSNotebook *nb = [RGSNotebook notebookWithName:@"Ex novias"
                                             context:self.model.context];
     
-    RGSNote *pampita = [RGSNote noteWithName:@"pampita" notebook:nb context:self.model.context];
-    RGSNote *marina = [RGSNote noteWithName:@"marina" notebook:nb context:self.model.context];
-    RGSNote *camila = [RGSNote noteWithName:@"camila" notebook:nb context:self.model.context];
+    //buscar objetos
+    NSFetchRequest *req =[NSFetchRequest fetchRequestWithEntityName:[RGSNote entityName]];
     
-    NSLog(@"%@", nb);
+    [RGSNote noteWithName:@"pampita" notebook:nb context:self.model.context];
+    [RGSNote noteWithName:@"marina" notebook:nb context:self.model.context];
+    [RGSNote noteWithName:@"camila" notebook:nb context:self.model.context];
+    
+    req.fetchBatchSize = 25;
+    //req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name ascending:YES]];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)]];
+    req.predicate = [NSPredicate predicateWithFormat:@"notebook = %@", nb];
+    
+    NSArray *res = [self.model executeFetchRequest:req errorBlock:^(NSError *error) {
+        NSLog(@"Un poco la gagaste");
+    }];
+    
+    NSLog(@"%@", res);
+    
+//    [self.model saveWithErrorBlock:^(NSError *error) {
+//        NSLog(@"La cagamos");
+//    }];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.model = [AGTCoreDataStack coreDataStackWithModelName:@"Everpobre"];
     
+    // meto los datos chorras
     [self createDummyDate];
+    
+    // creo la window y tal y cual
     
     // Override point for customization after application launch.
     return YES;

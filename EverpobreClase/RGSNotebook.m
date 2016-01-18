@@ -10,6 +10,10 @@
 
 #pragma mark - Class Methods
 
++(NSArray*) observableKeys{
+    return @[@"name", @"notes"];
+}
+
 // Custom logic goes here.
 +(instancetype) notebookWithName: (NSString*) name
                          context:(NSManagedObjectContext *) context{
@@ -47,16 +51,33 @@
 
 #pragma mark - KVO
 -(void) setupKVO{
-    // alta de notificaciones
-    [self addObserver:self
-           forKeyPath:"name"
-              options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
-              context:]
+    
+    for (NSString *key in [self.class observableKeys]){
+        // alta de notificaciones
+        [self addObserver:self
+               forKeyPath:key
+                  options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+                  context:NULL];
+        
+    }
+    
 }
 
 -(void) tearDownKVO{
-    // baja de notificaciones
     
+    // baja de notificaciones
+    for (NSString *key in [self.class observableKeys]){
+        [self removeObserver:self
+                  forKeyPath:key];
+    }
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSString *,id> *)change
+                       context:(void *)context{
+    
+    self.modificationDate = [NSDate date];
 }
 
 @end
