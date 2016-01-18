@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2865F3C71C4AF4890038B6CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3C61C4AF4890038B6CC /* main.m */; };
 		2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3C91C4AF4890038B6CC /* AppDelegate.m */; };
-		2865F3CD1C4AF4890038B6CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3CC1C4AF4890038B6CC /* ViewController.m */; };
-		2865F3D01C4AF4890038B6CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2865F3CE1C4AF4890038B6CC /* Main.storyboard */; };
 		2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2865F3D11C4AF4890038B6CC /* Assets.xcassets */; };
 		2865F3D51C4AF4890038B6CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2865F3D31C4AF4890038B6CC /* LaunchScreen.storyboard */; };
 		2865F3E01C4AF4890038B6CC /* EverpobreClaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3DF1C4AF4890038B6CC /* EverpobreClaseTests.m */; };
@@ -23,6 +21,8 @@
 		2865F4041C4D65490038B6CC /* RGSNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3FD1C4D65490038B6CC /* RGSNotebook.m */; };
 		2865F4051C4D65490038B6CC /* RGSPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3FF1C4D65490038B6CC /* RGSPhoto.m */; };
 		2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */; };
+		2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F40D1C4DA1680038B6CC /* RGSNotebookViewController.m */; };
+		2865F4121C4DAA990038B6CC /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F4111C4DAA990038B6CC /* UIViewController+Navigation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +40,6 @@
 		2865F3C61C4AF4890038B6CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2865F3C81C4AF4890038B6CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2865F3C91C4AF4890038B6CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2865F3CB1C4AF4890038B6CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2865F3CC1C4AF4890038B6CC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2865F3CF1C4AF4890038B6CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2865F3D11C4AF4890038B6CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2865F3D41C4AF4890038B6CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2865F3D61C4AF4890038B6CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +63,10 @@
 		2865F3FF1C4D65490038B6CC /* RGSPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSPhoto.m; sourceTree = "<group>"; };
 		2865F4091C4DA0400038B6CC /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
 		2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
+		2865F40C1C4DA1680038B6CC /* RGSNotebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSNotebookViewController.h; sourceTree = "<group>"; };
+		2865F40D1C4DA1680038B6CC /* RGSNotebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNotebookViewController.m; sourceTree = "<group>"; };
+		2865F4101C4DAA990038B6CC /* UIViewController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigation.h"; sourceTree = "<group>"; };
+		2865F4111C4DAA990038B6CC /* UIViewController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +108,11 @@
 		2865F3C41C4AF4890038B6CC /* EverpobreClase */ = {
 			isa = PBXGroup;
 			children = (
-				2865F4081C4DA0360038B6CC /* Controllers */,
+				2865F40F1C4DAA580038B6CC /* Categories */,
+				2865F4081C4DA0360038B6CC /* Controller */,
 				2865F3ED1C4AF4F30038B6CC /* Modelos */,
 				2865F3C81C4AF4890038B6CC /* AppDelegate.h */,
 				2865F3C91C4AF4890038B6CC /* AppDelegate.m */,
-				2865F3CB1C4AF4890038B6CC /* ViewController.h */,
-				2865F3CC1C4AF4890038B6CC /* ViewController.m */,
-				2865F3CE1C4AF4890038B6CC /* Main.storyboard */,
 				2865F3D11C4AF4890038B6CC /* Assets.xcassets */,
 				2865F3D31C4AF4890038B6CC /* LaunchScreen.storyboard */,
 				2865F3D61C4AF4890038B6CC /* Info.plist */,
@@ -177,13 +176,24 @@
 			name = Human;
 			sourceTree = "<group>";
 		};
-		2865F4081C4DA0360038B6CC /* Controllers */ = {
+		2865F4081C4DA0360038B6CC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				2865F4091C4DA0400038B6CC /* AGTCoreDataTableViewController.h */,
 				2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */,
+				2865F40C1C4DA1680038B6CC /* RGSNotebookViewController.h */,
+				2865F40D1C4DA1680038B6CC /* RGSNotebookViewController.m */,
 			);
-			name = Controllers;
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2865F40F1C4DAA580038B6CC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2865F4101C4DAA990038B6CC /* UIViewController+Navigation.h */,
+				2865F4111C4DAA990038B6CC /* UIViewController+Navigation.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +280,6 @@
 			files = (
 				2865F3D51C4AF4890038B6CC /* LaunchScreen.storyboard in Resources */,
 				2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */,
-				2865F3D01C4AF4890038B6CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,9 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2865F4051C4D65490038B6CC /* RGSPhoto.m in Sources */,
-				2865F3CD1C4AF4890038B6CC /* ViewController.m in Sources */,
+				2865F4121C4DAA990038B6CC /* UIViewController+Navigation.m in Sources */,
 				2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */,
 				2865F4041C4D65490038B6CC /* RGSNotebook.m in Sources */,
+				2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */,
 				2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */,
 				2865F4001C4D65490038B6CC /* _RGSNote.m in Sources */,
 				2865F4021C4D65490038B6CC /* _RGSPhoto.m in Sources */,
@@ -322,14 +332,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2865F3CE1C4AF4890038B6CC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2865F3CF1C4AF4890038B6CC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2865F3D31C4AF4890038B6CC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

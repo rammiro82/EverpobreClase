@@ -10,6 +10,8 @@
 #import "RGSNotebook.h"
 #import "AGTCoreDataStack.h"
 #import "RGSNote.h"
+#import "RGSNotebookViewController.h"
+#import "UIViewController+Navigation.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) AGTCoreDataStack *model;
@@ -20,13 +22,16 @@
 -(void) createDummyDate{
     RGSNotebook *nb = [RGSNotebook notebookWithName:@"Ex novias"
                                             context:self.model.context];
+    RGSNotebook *nb2 = [RGSNotebook notebookWithName:@"Sitios por visitar"
+                                            context:self.model.context];
     
     //buscar objetos
     NSFetchRequest *req =[NSFetchRequest fetchRequestWithEntityName:[RGSNote entityName]];
     
     [RGSNote noteWithName:@"pampita" notebook:nb context:self.model.context];
     [RGSNote noteWithName:@"marina" notebook:nb context:self.model.context];
-    [RGSNote noteWithName:@"camila" notebook:nb context:self.model.context];
+    
+    [RGSNote noteWithName:@"camila" notebook:nb2 context:self.model.context];
     
     req.fetchBatchSize = 25;
     //req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name ascending:YES]];
@@ -39,7 +44,6 @@
         NSLog(@"Un poco la gagaste");
     }];
     
-    NSLog(@"%@", res);
     
 //    [self.model saveWithErrorBlock:^(NSError *error) {
 //        NSLog(@"La cagamos");
@@ -54,8 +58,28 @@
     [self createDummyDate];
     
     // creo la window y tal y cual
+    self.window = [[UIWindow alloc] initWithFrame:
+                   [[UIScreen mainScreen] bounds]];
     
-    // Override point for customization after application launch.
+    //  nsfecth request
+    NSFetchRequest *r = [NSFetchRequest fetchRequestWithEntityName:[RGSNotebook entityName]];
+    
+    r.fetchBatchSize = 25;
+    r.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name
+                                                        ascending:YES
+                                                         selector:@selector(caseInsensitiveCompare:)],
+                          [NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.modificationDate
+                                                        ascending:NO]];
+    
+    // NSFetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:r managedObjectContext:self.model.context sectionNameKeyPath:nil cacheName:nil];
+    
+    RGSNotebookViewController *tVC = [[RGSNotebookViewController alloc] initWithFetchedResultsController:fc style:UITableViewStylePlain];
+    
+    self.window.rootViewController = [tVC wrappedInNavigation];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
