@@ -23,6 +23,7 @@
 		2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */; };
 		2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F40D1C4DA1680038B6CC /* RGSNotebookViewController.m */; };
 		2865F4121C4DAA990038B6CC /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F4111C4DAA990038B6CC /* UIViewController+Navigation.m */; };
+		2865F4161C5187EC0038B6CC /* RGSNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F4151C5187EC0038B6CC /* RGSNotesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,9 @@
 		2865F40D1C4DA1680038B6CC /* RGSNotebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNotebookViewController.m; sourceTree = "<group>"; };
 		2865F4101C4DAA990038B6CC /* UIViewController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigation.h"; sourceTree = "<group>"; };
 		2865F4111C4DAA990038B6CC /* UIViewController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigation.m"; sourceTree = "<group>"; };
+		2865F4131C5178DF0038B6CC /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		2865F4141C5187EC0038B6CC /* RGSNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSNotesViewController.h; sourceTree = "<group>"; };
+		2865F4151C5187EC0038B6CC /* RGSNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNotesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 				2865F3D31C4AF4890038B6CC /* LaunchScreen.storyboard */,
 				2865F3D61C4AF4890038B6CC /* Info.plist */,
 				2865F3C51C4AF4890038B6CC /* Supporting Files */,
+				2865F4131C5178DF0038B6CC /* Settings.h */,
 			);
 			path = EverpobreClase;
 			sourceTree = "<group>";
@@ -183,6 +188,8 @@
 				2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */,
 				2865F40C1C4DA1680038B6CC /* RGSNotebookViewController.h */,
 				2865F40D1C4DA1680038B6CC /* RGSNotebookViewController.m */,
+				2865F4141C5187EC0038B6CC /* RGSNotesViewController.h */,
+				2865F4151C5187EC0038B6CC /* RGSNotesViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -300,6 +307,7 @@
 				2865F4051C4D65490038B6CC /* RGSPhoto.m in Sources */,
 				2865F4121C4DAA990038B6CC /* UIViewController+Navigation.m in Sources */,
 				2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */,
+				2865F4161C5187EC0038B6CC /* RGSNotesViewController.m in Sources */,
 				2865F4041C4D65490038B6CC /* RGSNotebook.m in Sources */,
 				2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */,
 				2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */,
