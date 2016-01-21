@@ -51,7 +51,7 @@
     
     
     // sincronizamos visas -> modelo
-    self.model.text = self.nameView.text;
+    self.model.name = self.nameView.text;
     self.model.text = self.textView.text;
 }
 
