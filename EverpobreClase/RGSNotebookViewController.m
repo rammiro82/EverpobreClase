@@ -8,6 +8,8 @@
 
 #import "RGSNotebookViewController.h"
 #import "RGSNotebook.h"
+#import "RGSNote.h"
+#import "RGSNotesViewController.h"
 
 @interface RGSNotebookViewController ()
 
@@ -59,14 +61,39 @@
     return cell;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Navigation
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // obtener la libreta
+    RGSNotebook *nb = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // Crear el fecth request
+    NSFetchRequest *r = [[NSFetchRequest alloc] initWithEntityName:[RGSNote entityName]];
+    
+    // Configurarlo con un predicado
+    r.fetchBatchSize = 25;
+    r.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name
+                                                        ascending:YES
+                                                         selector:@selector(caseInsensitiveCompare:)],
+                          [NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.modificationDate
+                                                        ascending:NO]];
+    r.predicate = [NSPredicate predicateWithFormat:@"notebook == %@", nb];
+    
+    // Crear el fecht results
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:r
+                                                                         managedObjectContext:nb.managedObjectContext
+                                                                           sectionNameKeyPath:nil
+                                                                                    cacheName:[[NSUUID new] UUIDString]];
+    
+    // Crear el controlador
+    RGSNotesViewController *nVC = [[RGSNotesViewController alloc] initWithFetchedResultsController:fc
+                                                                                             style:UITableViewStylePlain
+                                   notebook:nb];
+    
+    
+    // Pushearlo
+    [self.navigationController pushViewController:nVC
+                                         animated:YES];
 }
-*/
 
 @end

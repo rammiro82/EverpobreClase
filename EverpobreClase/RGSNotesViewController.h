@@ -11,7 +11,11 @@
 
 #import "AGTCoreDataTableViewController.h";
 
+@class RGSNotebook;
+
 @interface RGSNotesViewController : AGTCoreDataTableViewController
 
+
+-(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController style:(UITableViewStyle)aStyle notebook: (RGSNotebook* ) notebook;
 
 @end
