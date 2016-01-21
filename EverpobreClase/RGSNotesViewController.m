@@ -10,6 +10,7 @@
 #import "RGSNote.h"
 #import "RGSPhoto.h"
 #import "RGSNotebook.h"
+#import "RGSNoteViewController.h"
 
 @interface RGSNotesViewController()
 @property (nonatomic, strong) RGSNotebook *notebook;
@@ -71,4 +72,14 @@
     return cell;
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // obrener la nota
+    RGSNote *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // crear el controlador
+    RGSNoteViewController *nVC = [[RGSNoteViewController alloc] initWithModel:note];
+    
+    // hacer el push
+    [self.navigationController pushViewController:nVC animated:YES];
+}
 @end
