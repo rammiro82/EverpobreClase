@@ -14,8 +14,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *modificationDateView;
 @property (weak, nonatomic) IBOutlet UITextField *nameView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 
 @property (strong, nonatomic) RGSNote *model;
+
+@property (nonatomic) CGRect oldFrame;
+@property (nonatomic) double animationDuration;
+
 @end
 
 @implementation RGSNoteViewController
@@ -44,6 +49,10 @@
     self.nameView.text = self.model.name;
     self.textView.text = self.model.text;
     
+    self.oldFrame = self.textView.frame;
+    
+    // alta en notificaciones del teclado
+    [self startObservingKeyboard];
 }
 
 -(void) viewWillDisappear:(BOOL)animated{
@@ -53,14 +62,57 @@
     // sincronizamos visas -> modelo
     self.model.name = self.nameView.text;
     self.model.text = self.textView.text;
+    
+    // baja en notificaciones del teclado
+    [self stopObservingKeyboard];
 }
 
-- (IBAction)displayPhoto:(id)sender {
+#pragma mark - Notifications
+-(void)startObservingKeyboard {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self
+           selector:@selector(keyboardWillAppear:)
+               name:UIKeyboardWillShowNotification
+             object:nil];
+    [nc addObserver:self
+           selector:@selector(keyboardWillDisappear:)
+               name:UIKeyboardWillHideNotification
+             object:nil];
 }
 
--(IBAction)removeKeyboard:(id)sender{
-    [self.view endEditing:YES];
+-(void)stopObservingKeyboard {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc removeObserver:self];
 }
+
+-(void) keyboardWillAppear:(NSNotification *) note{
+    
+    NSDictionary *info = note.userInfo;
+    
+    self.animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    CGRect kbdFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGRect newFrame = CGRectMake(self.oldFrame.origin.x,
+                                  self.oldFrame.origin.y,
+                                  self.oldFrame.size.width,
+                                  self.oldFrame.size.height - kbdFrame.size.height + self.bottomToolBar.bounds.size.height);
+    
+    [UIView animateWithDuration:self.animationDuration
+                     animations:^{
+                         self.textView.frame = newFrame;
+                     }];
+}
+
+-(void) keyboardWillDisappear:(NSNotification *) note{
+    [UIView animateWithDuration:self.animationDuration
+                     animations:^{
+                         self.textView.frame = self.oldFrame;
+                     }];
+}
+
 
 
 - (void)viewDidLoad {
@@ -71,6 +123,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Actions
+- (IBAction)displayPhoto:(id)sender {
+}
+
+-(IBAction)removeKeyboard:(id)sender{
+    [self.view endEditing:YES];
 }
 
 /*

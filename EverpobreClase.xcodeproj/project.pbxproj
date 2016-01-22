@@ -26,6 +26,8 @@
 		2865F4161C5187EC0038B6CC /* RGSNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F4151C5187EC0038B6CC /* RGSNotesViewController.m */; };
 		2865F41A1C5195200038B6CC /* RGSNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F4181C5195200038B6CC /* RGSNoteViewController.m */; };
 		2865F41B1C5195200038B6CC /* RGSNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2865F4191C5195200038B6CC /* RGSNoteViewController.xib */; };
+		2865F41F1C52CC500038B6CC /* RGSPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F41D1C52CC500038B6CC /* RGSPhotoViewController.m */; };
+		2865F4201C52CC500038B6CC /* RGSPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,9 @@
 		2865F4171C5195200038B6CC /* RGSNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSNoteViewController.h; sourceTree = "<group>"; };
 		2865F4181C5195200038B6CC /* RGSNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNoteViewController.m; sourceTree = "<group>"; };
 		2865F4191C5195200038B6CC /* RGSNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSNoteViewController.xib; sourceTree = "<group>"; };
+		2865F41C1C52CC500038B6CC /* RGSPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSPhotoViewController.h; sourceTree = "<group>"; };
+		2865F41D1C52CC500038B6CC /* RGSPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSPhotoViewController.m; sourceTree = "<group>"; };
+		2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSPhotoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +203,9 @@
 				2865F4171C5195200038B6CC /* RGSNoteViewController.h */,
 				2865F4181C5195200038B6CC /* RGSNoteViewController.m */,
 				2865F4191C5195200038B6CC /* RGSNoteViewController.xib */,
+				2865F41C1C52CC500038B6CC /* RGSPhotoViewController.h */,
+				2865F41D1C52CC500038B6CC /* RGSPhotoViewController.m */,
+				2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2865F4201C52CC500038B6CC /* RGSPhotoViewController.xib in Resources */,
 				2865F3D51C4AF4890038B6CC /* LaunchScreen.storyboard in Resources */,
 				2865F41B1C5195200038B6CC /* RGSNoteViewController.xib in Resources */,
 				2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */,
@@ -321,6 +330,7 @@
 				2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */,
 				2865F41A1C5195200038B6CC /* RGSNoteViewController.m in Sources */,
 				2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */,
+				2865F41F1C52CC500038B6CC /* RGSPhotoViewController.m in Sources */,
 				2865F4001C4D65490038B6CC /* _RGSNote.m in Sources */,
 				2865F4021C4D65490038B6CC /* _RGSPhoto.m in Sources */,
 				2865F3F31C4B07AB0038B6CC /* Everpobre.xcdatamodeld in Sources */,

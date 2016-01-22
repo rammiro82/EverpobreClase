@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RGSNoteViewController">
             <connections>
+                <outlet property="bottomToolBar" destination="W46-U0-S8s" id="Q1a-LV-UkK"/>
                 <outlet property="creationDateView" destination="MOk-eV-Z7E" id="zRd-11-6Ne"/>
                 <outlet property="modificationDateView" destination="jQM-NW-OZV" id="SuC-Fu-0eg"/>
                 <outlet property="nameView" destination="1ZO-l1-Bnr" id="rqg-Tj-2lp"/>
@@ -46,13 +47,13 @@
                 </toolbar>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escriba texto aquí" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="1ZO-l1-Bnr">
                     <rect key="frame" x="8" y="96" width="304" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" keyboardType="alphabet" returnKeyType="done"/>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="trs-Yf-ktP">
                     <rect key="frame" x="8" y="134" width="304" height="380"/>
-                    <autoresizingMask key="autoresizingMask"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
