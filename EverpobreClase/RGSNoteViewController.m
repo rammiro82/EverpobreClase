@@ -58,6 +58,10 @@
 - (IBAction)displayPhoto:(id)sender {
 }
 
+-(IBAction)removeKeyboard:(id)sender{
+    [self.view endEditing:YES];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
