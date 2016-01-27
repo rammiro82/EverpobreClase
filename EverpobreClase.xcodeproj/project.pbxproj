@@ -28,6 +28,7 @@
 		2865F41B1C5195200038B6CC /* RGSNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2865F4191C5195200038B6CC /* RGSNoteViewController.xib */; };
 		2865F41F1C52CC500038B6CC /* RGSPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F41D1C52CC500038B6CC /* RGSPhotoViewController.m */; };
 		2865F4201C52CC500038B6CC /* RGSPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */; };
+		2865F4221C52CE190038B6CC /* Person_NoPhotoAvailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		2865F41C1C52CC500038B6CC /* RGSPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSPhotoViewController.h; sourceTree = "<group>"; };
 		2865F41D1C52CC500038B6CC /* RGSPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSPhotoViewController.m; sourceTree = "<group>"; };
 		2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSPhotoViewController.xib; sourceTree = "<group>"; };
+		2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person_NoPhotoAvailable.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		2865F3C41C4AF4890038B6CC /* EverpobreClase */ = {
 			isa = PBXGroup;
 			children = (
+				2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */,
 				2865F40F1C4DAA580038B6CC /* Categories */,
 				2865F4081C4DA0360038B6CC /* Controller */,
 				2865F3ED1C4AF4F30038B6CC /* Modelos */,
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2865F4201C52CC500038B6CC /* RGSPhotoViewController.xib in Resources */,
+				2865F4221C52CE190038B6CC /* Person_NoPhotoAvailable.png in Resources */,
 				2865F3D51C4AF4890038B6CC /* LaunchScreen.storyboard in Resources */,
 				2865F41B1C5195200038B6CC /* RGSNoteViewController.xib in Resources */,
 				2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */,

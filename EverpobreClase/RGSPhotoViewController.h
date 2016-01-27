@@ -6,8 +6,12 @@
 //  Copyright © 2016 Ramiro García Salazar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@class RGSNote;
 
 @interface RGSPhotoViewController : UIViewController
+
+-(id) initWithModel:(RGSNote*) note;
+
 
 @end
