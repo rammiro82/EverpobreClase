@@ -8,6 +8,7 @@
 
 #import "RGSNoteViewController.h"
 #import "RGSNote.h"
+#import "RGSPhotoViewController.h"
 
 @interface RGSNoteViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *creationDateView;
@@ -128,6 +129,9 @@
 
 #pragma mark - Actions
 - (IBAction)displayPhoto:(id)sender {
+    RGSPhotoViewController *pVC = [[RGSPhotoViewController alloc] initWithModel:self.model];
+    
+    [self.navigationController pushViewController:pVC animated:YES];
 }
 
 -(IBAction)removeKeyboard:(id)sender{

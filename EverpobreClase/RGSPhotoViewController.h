@@ -9,7 +9,7 @@
 @import UIKit;
 @class RGSNote;
 
-@interface RGSPhotoViewController : UIViewController
+@interface RGSPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 -(id) initWithModel:(RGSNote*) note;
 

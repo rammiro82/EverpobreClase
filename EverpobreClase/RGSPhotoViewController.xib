@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RGSPhotoViewController">
             <connections>
-                <outlet property="filterVintage" destination="6l0-YD-Ewo" id="8Tg-uR-CDf"/>
+                <outlet property="deleteButton" destination="TUP-gv-hwy" id="c7T-Hw-do0"/>
                 <outlet property="photoView" destination="zwQ-FF-3hN" id="76o-qe-7ni"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,9 +27,9 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="aVj-ao-wlb"/>
-                        <barButtonItem title="Vintage" id="6l0-YD-Ewo">
+                        <barButtonItem title="Vintage" id="El5-o9-h46">
                             <connections>
-                                <action selector="applyFilter:" destination="-1" id="L81-nA-2Sg"/>
+                                <action selector="applyFilter:" destination="-1" id="lfx-Uu-EWH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="SbD-GO-bJt"/>
