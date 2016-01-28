@@ -70,9 +70,30 @@
 #pragma mark - Actions
 
 - (IBAction)deletePhoto:(id)sender {
-    self.model.photo.image = nil;
     
-    self.deleteButton.enabled = NO;
+    CGRect oldBounds = self.photoView.bounds;
+    
+    [UIView animateWithDuration:0.9
+                     animations:^{
+                         self.photoView.alpha = 0;
+                         self.photoView.bounds = CGRectZero;
+                         self.photoView.transform = CGAffineTransformMakeRotation(M_2_PI);
+                     } completion:^(BOOL finished) {
+                         
+                         // eliminamos del modelo
+                         self.model.photo.image = nil;
+                         
+                         // eliminamos del photoview
+                         self.photoView.image = nil;
+                         
+                         self.deleteButton.enabled = NO;
+                         
+                         // dejamos todo como esaba
+                         self.photoView.alpha = 1;
+                         self.photoView.bounds = oldBounds;
+                         self.photoView.transform = CGAffineTransformIdentity;
+                     }];
+    
 }
 
 - (IBAction)applyFilter:(id)sender {
