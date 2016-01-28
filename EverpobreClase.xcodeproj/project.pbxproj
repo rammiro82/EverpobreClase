@@ -83,6 +83,7 @@
 		2865F41D1C52CC500038B6CC /* RGSPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSPhotoViewController.m; sourceTree = "<group>"; };
 		2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSPhotoViewController.xib; sourceTree = "<group>"; };
 		2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person_NoPhotoAvailable.png; sourceTree = "<group>"; };
+		287DEEB11C5AE014003D4A86 /* Everpobre2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Everpobre2.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -541,9 +542,10 @@
 		2865F3F11C4B07AA0038B6CC /* Everpobre.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				287DEEB11C5AE014003D4A86 /* Everpobre2.xcdatamodel */,
 				2865F3F21C4B07AB0038B6CC /* Everpobre.xcdatamodel */,
 			);
-			currentVersion = 2865F3F21C4B07AB0038B6CC /* Everpobre.xcdatamodel */;
+			currentVersion = 287DEEB11C5AE014003D4A86 /* Everpobre2.xcdatamodel */;
 			path = Everpobre.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
