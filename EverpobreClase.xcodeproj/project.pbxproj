@@ -29,6 +29,8 @@
 		2865F41F1C52CC500038B6CC /* RGSPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F41D1C52CC500038B6CC /* RGSPhotoViewController.m */; };
 		2865F4201C52CC500038B6CC /* RGSPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */; };
 		2865F4221C52CE190038B6CC /* Person_NoPhotoAvailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */; };
+		287DEEB61C5AE2DB003D4A86 /* _RGSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DEEB31C5AE2DB003D4A86 /* _RGSLocation.m */; };
+		287DEEB71C5AE2DB003D4A86 /* RGSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DEEB51C5AE2DB003D4A86 /* RGSLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,10 @@
 		2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSPhotoViewController.xib; sourceTree = "<group>"; };
 		2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person_NoPhotoAvailable.png; sourceTree = "<group>"; };
 		287DEEB11C5AE014003D4A86 /* Everpobre2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Everpobre2.xcdatamodel; sourceTree = "<group>"; };
+		287DEEB21C5AE2DB003D4A86 /* _RGSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RGSLocation.h; sourceTree = "<group>"; };
+		287DEEB31C5AE2DB003D4A86 /* _RGSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGSLocation.m; sourceTree = "<group>"; };
+		287DEEB41C5AE2DB003D4A86 /* RGSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSLocation.h; sourceTree = "<group>"; };
+		287DEEB51C5AE2DB003D4A86 /* RGSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,8 @@
 		2865F4061C4D65550038B6CC /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				287DEEB21C5AE2DB003D4A86 /* _RGSLocation.h */,
+				287DEEB31C5AE2DB003D4A86 /* _RGSLocation.m */,
 				2865F3F41C4D65490038B6CC /* _RGSNote.h */,
 				2865F3F51C4D65490038B6CC /* _RGSNote.m */,
 				2865F3F61C4D65490038B6CC /* _RGSNotebook.h */,
@@ -185,6 +193,8 @@
 		2865F4071C4D667E0038B6CC /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				287DEEB41C5AE2DB003D4A86 /* RGSLocation.h */,
+				287DEEB51C5AE2DB003D4A86 /* RGSLocation.m */,
 				2865F3FA1C4D65490038B6CC /* RGSNote.h */,
 				2865F3FB1C4D65490038B6CC /* RGSNote.m */,
 				2865F3FC1C4D65490038B6CC /* RGSNotebook.h */,
@@ -335,12 +345,14 @@
 				2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */,
 				2865F41A1C5195200038B6CC /* RGSNoteViewController.m in Sources */,
 				2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */,
+				287DEEB61C5AE2DB003D4A86 /* _RGSLocation.m in Sources */,
 				2865F41F1C52CC500038B6CC /* RGSPhotoViewController.m in Sources */,
 				2865F4001C4D65490038B6CC /* _RGSNote.m in Sources */,
 				2865F4021C4D65490038B6CC /* _RGSPhoto.m in Sources */,
 				2865F3F31C4B07AB0038B6CC /* Everpobre.xcdatamodeld in Sources */,
 				2865F4011C4D65490038B6CC /* _RGSNotebook.m in Sources */,
 				2865F4031C4D65490038B6CC /* RGSNote.m in Sources */,
+				287DEEB71C5AE2DB003D4A86 /* RGSLocation.m in Sources */,
 				2865F3F01C4AF8340038B6CC /* AGTCoreDataStack.m in Sources */,
 				2865F3C71C4AF4890038B6CC /* main.m in Sources */,
 			);

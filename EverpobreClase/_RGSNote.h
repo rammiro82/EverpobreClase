@@ -11,10 +11,12 @@ extern const struct RGSNoteAttributes {
 } RGSNoteAttributes;
 
 extern const struct RGSNoteRelationships {
+	__unsafe_unretained NSString *location;
 	__unsafe_unretained NSString *notebook;
 	__unsafe_unretained NSString *photo;
 } RGSNoteRelationships;
 
+@class RGSLocation;
 @class RGSNotebook;
 @class RGSPhoto;
 
@@ -43,6 +45,10 @@ extern const struct RGSNoteRelationships {
 
 //- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) RGSLocation *location;
+
+//- (BOOL)validateLocation:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) RGSNotebook *notebook;
 
 //- (BOOL)validateNotebook:(id*)value_ error:(NSError**)error_;
@@ -66,6 +72,9 @@ extern const struct RGSNoteRelationships {
 
 - (NSString*)primitiveText;
 - (void)setPrimitiveText:(NSString*)value;
+
+- (RGSLocation*)primitiveLocation;
+- (void)setPrimitiveLocation:(RGSLocation*)value;
 
 - (RGSNotebook*)primitiveNotebook;
 - (void)setPrimitiveNotebook:(RGSNotebook*)value;

@@ -11,6 +11,7 @@ const struct RGSNoteAttributes RGSNoteAttributes = {
 };
 
 const struct RGSNoteRelationships RGSNoteRelationships = {
+	.location = @"location",
 	.notebook = @"notebook",
 	.photo = @"photo",
 };
@@ -51,6 +52,8 @@ const struct RGSNoteRelationships RGSNoteRelationships = {
 @dynamic name;
 
 @dynamic text;
+
+@dynamic location;
 
 @dynamic notebook;
 
