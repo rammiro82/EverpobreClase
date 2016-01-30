@@ -9,7 +9,7 @@
 @import UIKit;
 @import CoreData;
 
-#import "AGTCoreDataTableViewController.h";
+#import "AGTCoreDataTableViewController.h"
 
 @class RGSNotebook;
 

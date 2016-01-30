@@ -31,6 +31,8 @@
 		2865F4221C52CE190038B6CC /* Person_NoPhotoAvailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */; };
 		287DEEB61C5AE2DB003D4A86 /* _RGSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DEEB31C5AE2DB003D4A86 /* _RGSLocation.m */; };
 		287DEEB71C5AE2DB003D4A86 /* RGSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DEEB51C5AE2DB003D4A86 /* RGSLocation.m */; };
+		287DEEB91C5C7B28003D4A86 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287DEEB81C5C7B28003D4A86 /* CoreLocation.framework */; };
+		287DEEBC1C5C8998003D4A86 /* placemark.png in Resources */ = {isa = PBXBuildFile; fileRef = 287DEEBB1C5C8998003D4A86 /* placemark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		287DEEB31C5AE2DB003D4A86 /* _RGSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGSLocation.m; sourceTree = "<group>"; };
 		287DEEB41C5AE2DB003D4A86 /* RGSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSLocation.h; sourceTree = "<group>"; };
 		287DEEB51C5AE2DB003D4A86 /* RGSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSLocation.m; sourceTree = "<group>"; };
+		287DEEB81C5C7B28003D4A86 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		287DEEBB1C5C8998003D4A86 /* placemark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placemark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287DEEB91C5C7B28003D4A86 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +118,7 @@
 		2865F3B91C4AF4880038B6CC = {
 			isa = PBXGroup;
 			children = (
+				287DEEB81C5C7B28003D4A86 /* CoreLocation.framework */,
 				2865F3C41C4AF4890038B6CC /* EverpobreClase */,
 				2865F3DE1C4AF4890038B6CC /* EverpobreClaseTests */,
 				2865F3C31C4AF4890038B6CC /* Products */,
@@ -131,7 +137,7 @@
 		2865F3C41C4AF4890038B6CC /* EverpobreClase */ = {
 			isa = PBXGroup;
 			children = (
-				2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */,
+				287DEEBA1C5C8981003D4A86 /* Resources */,
 				2865F40F1C4DAA580038B6CC /* Categories */,
 				2865F4081C4DA0360038B6CC /* Controller */,
 				2865F3ED1C4AF4F30038B6CC /* Modelos */,
@@ -233,6 +239,15 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		287DEEBA1C5C8981003D4A86 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */,
+				287DEEBB1C5C8998003D4A86 /* placemark.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,6 +334,7 @@
 				2865F4221C52CE190038B6CC /* Person_NoPhotoAvailable.png in Resources */,
 				2865F3D51C4AF4890038B6CC /* LaunchScreen.storyboard in Resources */,
 				2865F41B1C5195200038B6CC /* RGSNoteViewController.xib in Resources */,
+				287DEEBC1C5C8998003D4A86 /* placemark.png in Resources */,
 				2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,7 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EverpobreClase/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.KeepCoding.rgs.EverpobreClase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -486,7 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EverpobreClase/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.KeepCoding.rgs.EverpobreClase;
 				PRODUCT_NAME = "$(TARGET_NAME)";

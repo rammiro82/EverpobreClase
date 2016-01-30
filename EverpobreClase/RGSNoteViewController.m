@@ -21,6 +21,7 @@
 
 @property (nonatomic) CGRect oldFrame;
 @property (nonatomic) double animationDuration;
+@property (nonatomic) BOOL isKeyBoardVisible;
 
 @end
 
@@ -69,18 +70,20 @@
 }
 
 #pragma mark - Notifications
--(void)startObservingKeyboard {
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+-(void) startObservingKeyboard{
     
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self
            selector:@selector(keyboardWillAppear:)
                name:UIKeyboardWillShowNotification
              object:nil];
+    
     [nc addObserver:self
            selector:@selector(keyboardWillDisappear:)
                name:UIKeyboardWillHideNotification
              object:nil];
 }
+
 
 -(void)stopObservingKeyboard {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -88,31 +91,58 @@
     [nc removeObserver:self];
 }
 
--(void) keyboardWillAppear:(NSNotification *) note{
+-(void) keyboardWillAppear:(NSNotification *)note{
+    
+    if (!self.isKeyBoardVisible) {
+        
+        self.isKeyBoardVisible = YES;
+        
+        NSDictionary *info = note.userInfo;
+        
+        self.animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        CGRect oldFrame = self.textView.frame;
+        
+        CGRect kbdFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey]
+                           CGRectValue];
+        CGRect newFrame = CGRectMake(oldFrame.origin.x,
+                                     oldFrame.origin.y,
+                                     oldFrame.size.width,
+                                     oldFrame.size.height - kbdFrame.size.height + self.bottomToolBar.bounds.size.height);
+        
+        [UIView animateWithDuration:self.animationDuration
+                         animations:^{
+                             self.textView.frame = newFrame;
+                         }];
+        
+    }
+    
+    
+    
+}
+
+-(void) keyboardWillDisappear:(NSNotification *)note{
     
     NSDictionary *info = note.userInfo;
     
-    self.animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect oldFrame = self.textView.frame;
+    CGRect kbdFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey]
+                       CGRectValue];
     
-    CGRect kbdFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect newFrame = CGRectMake(oldFrame.origin.x,
+                                 oldFrame.origin.y,
+                                 oldFrame.size.width,
+                                 oldFrame.size.height + kbdFrame.size.height - self.bottomToolBar.bounds.size.height);
     
-    CGRect newFrame = CGRectMake(self.oldFrame.origin.x,
-                                  self.oldFrame.origin.y,
-                                  self.oldFrame.size.width,
-                                  self.oldFrame.size.height - kbdFrame.size.height + self.bottomToolBar.bounds.size.height);
     
     [UIView animateWithDuration:self.animationDuration
                      animations:^{
                          self.textView.frame = newFrame;
                      }];
+    
+    self.isKeyBoardVisible = false;
 }
 
--(void) keyboardWillDisappear:(NSNotification *) note{
-    [UIView animateWithDuration:self.animationDuration
-                     animations:^{
-                         self.textView.frame = self.oldFrame;
-                     }];
-}
+
 
 
 
