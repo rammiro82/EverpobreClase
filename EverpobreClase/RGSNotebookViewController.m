@@ -10,6 +10,7 @@
 #import "RGSNotebook.h"
 #import "RGSNote.h"
 #import "RGSNotesViewController.h"
+#import "RGSNotebookCellView.h"
 
 @interface RGSNotebookViewController ()
 
@@ -27,6 +28,12 @@
     
     // lo añadimos
     self.navigationItem.rightBarButtonItem = btn;
+    
+    //registramos el nib
+    UINib *cellNib = [UINib nibWithNibName:@"RGSNotebookCellView" bundle:nil];
+    
+    [self.tableView registerNib:cellNib
+         forCellReuseIdentifier:[RGSNotebookCellView cellId]];
 }
 
 -(void) addNewNotebook:(id) sender{
@@ -39,28 +46,26 @@
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellID = @"NotebookCell";
     
     // averiguar qué libreta es
     RGSNotebook *nb = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // crear la celda
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if(cell == nil){
-        // creamos la celda
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
+    RGSNotebookCellView *cell = [tableView dequeueReusableCellWithIdentifier:[RGSNotebookCellView cellId]];
     
     // sincronizar libreta --> celda
-    cell.textLabel.text = nb.name;
-    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-    fmt.dateStyle = NSDateFormatterShortStyle;
-    cell.detailTextLabel.text = [fmt stringFromDate:nb.modificationDate];
+    cell.nameView.text = nb.name;
+    cell.numberOfNotesView.text = [NSString stringWithFormat:@"%d", nb.notes.count];
     
     // devolvemos la celda
     return cell;
 }
 
+
+#pragma mark - TableView Delegate
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [RGSNotebookCellView cellHeight];
+}
 
 #pragma mark - Navigation
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

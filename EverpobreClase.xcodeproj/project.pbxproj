@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280829931C5CC41F00A563C8 /* RGSNotebookCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280829921C5CC41F00A563C8 /* RGSNotebookCellView.xib */; };
+		280829961C5CC62900A563C8 /* RGSNotebookCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 280829951C5CC62900A563C8 /* RGSNotebookCellView.m */; };
 		2865F3C71C4AF4890038B6CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3C61C4AF4890038B6CC /* main.m */; };
 		2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3C91C4AF4890038B6CC /* AppDelegate.m */; };
 		2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2865F3D11C4AF4890038B6CC /* Assets.xcassets */; };
@@ -46,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280829921C5CC41F00A563C8 /* RGSNotebookCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSNotebookCellView.xib; sourceTree = "<group>"; };
+		280829941C5CC62900A563C8 /* RGSNotebookCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSNotebookCellView.h; sourceTree = "<group>"; };
+		280829951C5CC62900A563C8 /* RGSNotebookCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNotebookCellView.m; sourceTree = "<group>"; };
 		2865F3C21C4AF4890038B6CC /* EverpobreClase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverpobreClase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865F3C61C4AF4890038B6CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2865F3C81C4AF4890038B6CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +120,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		280829911C5CC2D100A563C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				280829921C5CC41F00A563C8 /* RGSNotebookCellView.xib */,
+				280829941C5CC62900A563C8 /* RGSNotebookCellView.h */,
+				280829951C5CC62900A563C8 /* RGSNotebookCellView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		2865F3B91C4AF4880038B6CC = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +152,7 @@
 		2865F3C41C4AF4890038B6CC /* EverpobreClase */ = {
 			isa = PBXGroup;
 			children = (
+				280829911C5CC2D100A563C8 /* Views */,
 				287DEEBA1C5C8981003D4A86 /* Resources */,
 				2865F40F1C4DAA580038B6CC /* Categories */,
 				2865F4081C4DA0360038B6CC /* Controller */,
@@ -335,6 +351,7 @@
 				2865F3D51C4AF4890038B6CC /* LaunchScreen.storyboard in Resources */,
 				2865F41B1C5195200038B6CC /* RGSNoteViewController.xib in Resources */,
 				287DEEBC1C5C8998003D4A86 /* placemark.png in Resources */,
+				280829931C5CC41F00A563C8 /* RGSNotebookCellView.xib in Resources */,
 				2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +372,7 @@
 			files = (
 				2865F4051C4D65490038B6CC /* RGSPhoto.m in Sources */,
 				2865F4121C4DAA990038B6CC /* UIViewController+Navigation.m in Sources */,
+				280829961C5CC62900A563C8 /* RGSNotebookCellView.m in Sources */,
 				2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */,
 				2865F4161C5187EC0038B6CC /* RGSNotesViewController.m in Sources */,
 				2865F4041C4D65490038B6CC /* RGSNotebook.m in Sources */,
