@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class RGSNote;
+
 @interface RGSNoteCellView : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UILabel *modificationDateView;
 @property (weak, nonatomic) IBOutlet UILabel *titleView;
+
+
+-(void) observeNote:(RGSNote*) note;
 
 @end

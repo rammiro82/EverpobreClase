@@ -47,6 +47,11 @@ static NSString *cellId = @"noteCellId";
     [super viewWillAppear:animated];
     
     [self registerNib];
+    
+    self.collectionView.backgroundColor = [UIColor colorWithWhite:0.95
+                                                            alpha:1];
+    
+    self.title = @"Notas";
 }
 
 - (void)viewDidLoad {
@@ -78,14 +83,9 @@ static NSString *cellId = @"noteCellId";
     // obtener una celda
     RGSNoteCellView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId
                                                                       forIndexPath:indexPath];
-    
+
     // configurar la celda
-    cell.titleView.text = note.name;
-    cell.photoView.image = note.photo.image;
-    
-    NSDateFormatter *fmt = [NSDateFormatter new];
-    fmt.dateStyle = NSDateFormatterMediumStyle;
-    cell.modificationDateView.text = [fmt stringFromDate:note.modificationDate];
+    [cell observeNote:note];
     
     // devolver la celda
     return cell;
