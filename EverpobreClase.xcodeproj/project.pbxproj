@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		280829931C5CC41F00A563C8 /* RGSNotebookCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280829921C5CC41F00A563C8 /* RGSNotebookCellView.xib */; };
 		280829961C5CC62900A563C8 /* RGSNotebookCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 280829951C5CC62900A563C8 /* RGSNotebookCellView.m */; };
+		280829981C5CCC7500A563C8 /* RGSNoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280829971C5CCC7500A563C8 /* RGSNoteCollectionViewCell.xib */; };
+		2808299B1C5CCD9D00A563C8 /* RGSNoteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2808299A1C5CCD9D00A563C8 /* RGSNoteCellView.m */; };
+		2808299E1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2808299D1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m */; };
 		2865F3C71C4AF4890038B6CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3C61C4AF4890038B6CC /* main.m */; };
 		2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3C91C4AF4890038B6CC /* AppDelegate.m */; };
 		2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2865F3D11C4AF4890038B6CC /* Assets.xcassets */; };
@@ -51,6 +54,11 @@
 		280829921C5CC41F00A563C8 /* RGSNotebookCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSNotebookCellView.xib; sourceTree = "<group>"; };
 		280829941C5CC62900A563C8 /* RGSNotebookCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSNotebookCellView.h; sourceTree = "<group>"; };
 		280829951C5CC62900A563C8 /* RGSNotebookCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNotebookCellView.m; sourceTree = "<group>"; };
+		280829971C5CCC7500A563C8 /* RGSNoteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSNoteCollectionViewCell.xib; sourceTree = "<group>"; };
+		280829991C5CCD9D00A563C8 /* RGSNoteCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSNoteCellView.h; sourceTree = "<group>"; };
+		2808299A1C5CCD9D00A563C8 /* RGSNoteCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNoteCellView.m; sourceTree = "<group>"; };
+		2808299C1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataCollectionViewController.h; sourceTree = "<group>"; };
+		2808299D1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataCollectionViewController.m; sourceTree = "<group>"; };
 		2865F3C21C4AF4890038B6CC /* EverpobreClase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverpobreClase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865F3C61C4AF4890038B6CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2865F3C81C4AF4890038B6CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +134,9 @@
 				280829921C5CC41F00A563C8 /* RGSNotebookCellView.xib */,
 				280829941C5CC62900A563C8 /* RGSNotebookCellView.h */,
 				280829951C5CC62900A563C8 /* RGSNotebookCellView.m */,
+				280829971C5CCC7500A563C8 /* RGSNoteCollectionViewCell.xib */,
+				280829991C5CCD9D00A563C8 /* RGSNoteCellView.h */,
+				2808299A1C5CCD9D00A563C8 /* RGSNoteCellView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -230,6 +241,8 @@
 		2865F4081C4DA0360038B6CC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2808299C1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.h */,
+				2808299D1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m */,
 				2865F4091C4DA0400038B6CC /* AGTCoreDataTableViewController.h */,
 				2865F40A1C4DA0400038B6CC /* AGTCoreDataTableViewController.m */,
 				2865F40C1C4DA1680038B6CC /* RGSNotebookViewController.h */,
@@ -353,6 +366,7 @@
 				287DEEBC1C5C8998003D4A86 /* placemark.png in Resources */,
 				280829931C5CC41F00A563C8 /* RGSNotebookCellView.xib in Resources */,
 				2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */,
+				280829981C5CCC7500A563C8 /* RGSNoteCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,12 +385,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2865F4051C4D65490038B6CC /* RGSPhoto.m in Sources */,
+				2808299B1C5CCD9D00A563C8 /* RGSNoteCellView.m in Sources */,
 				2865F4121C4DAA990038B6CC /* UIViewController+Navigation.m in Sources */,
 				280829961C5CC62900A563C8 /* RGSNotebookCellView.m in Sources */,
 				2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */,
 				2865F4161C5187EC0038B6CC /* RGSNotesViewController.m in Sources */,
 				2865F4041C4D65490038B6CC /* RGSNotebook.m in Sources */,
 				2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */,
+				2808299E1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m in Sources */,
 				2865F41A1C5195200038B6CC /* RGSNoteViewController.m in Sources */,
 				2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */,
 				287DEEB61C5AE2DB003D4A86 /* _RGSLocation.m in Sources */,

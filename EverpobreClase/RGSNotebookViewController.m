@@ -64,7 +64,7 @@
 
 #pragma mark - TableView Delegate
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [RGSNotebookCellView cellHeight];
+    return [RGSNotebookCellView cellHeight]; 
 }
 
 #pragma mark - Navigation
@@ -89,11 +89,13 @@
                                                                          managedObjectContext:nb.managedObjectContext
                                                                            sectionNameKeyPath:nil
                                                                                     cacheName:[[NSUUID new] UUIDString]];
+    // layout
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.itemSize = CGSizeMake(120, 150);
     
     // Crear el controlador
-    RGSNotesViewController *nVC = [[RGSNotesViewController alloc] initWithFetchedResultsController:fc
-                                                                                             style:UITableViewStylePlain
-                                   notebook:nb];
+    RGSNotesViewController *nVC = [RGSNotesViewController coreDataCollectionViewControllerWithFetchedResultsController:fc
+                                                                                                                layout:layout];
     
     
     // Pushearlo

@@ -9,11 +9,10 @@
 @import UIKit;
 @import CoreData;
 
-#import "AGTCoreDataTableViewController.h"
-
+#import "AGTCoreDataCollectionViewController.h"
 @class RGSNotebook;
 
-@interface RGSNotesViewController : AGTCoreDataTableViewController
+@interface RGSNotesViewController : AGTCoreDataCollectionViewController
 
 
 -(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController style:(UITableViewStyle)aStyle notebook: (RGSNotebook* ) notebook;

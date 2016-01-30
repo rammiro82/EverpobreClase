@@ -11,6 +11,9 @@
 #import "RGSPhoto.h"
 #import "RGSNotebook.h"
 #import "RGSNoteViewController.h"
+#import "RGSNoteCellView.h"
+
+static NSString *cellId = @"noteCellId";
 
 @interface RGSNotesViewController()
 @property (nonatomic, strong) RGSNotebook *notebook;
@@ -19,6 +22,15 @@
 
 @implementation RGSNotesViewController
 
+#pragma mark - XIB registration
+-(void) registerNib{
+    UINib *nib = [UINib nibWithNibName:@"RGSNoteCollectionViewCell"
+                                bundle:nil];
+    
+    [self.collectionView registerNib:nib
+          forCellWithReuseIdentifier:cellId];
+}
+/*
 -(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController style:(UITableViewStyle)aStyle notebook: (RGSNotebook* ) notebook{
     
     if (self = [super initWithFetchedResultsController:aFetchedResultsController style:aStyle]) {
@@ -28,6 +40,14 @@
     return self;
 
 }
+*/
+
+#pragma mark - View LifeCycle
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self registerNib];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +55,7 @@
     UIBarButtonItem *itm = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNote:)];
     
     self.navigationItem.rightBarButtonItem = itm;
+    
 }
 
 -(void) addNewNote:(id) sender{
@@ -49,6 +70,26 @@
 }
 
 #pragma mark - Data Source
+-(UICollectionViewCell *) collectionView:(UICollectionView *) collectionView
+                  cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    // obtener el objeto
+    RGSNote *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // obtener una celda
+    RGSNoteCellView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId
+                                                                      forIndexPath:indexPath];
+    
+    // configurar la celda
+    cell.titleView.text = note.name;
+    cell.photoView.image = note.photo.image;
+    
+    NSDateFormatter *fmt = [NSDateFormatter new];
+    fmt.dateStyle = NSDateFormatterMediumStyle;
+    cell.modificationDateView.text = [fmt stringFromDate:note.modificationDate];
+    
+    // devolver la celda
+    return cell;
+}
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellID = @"NoteCell";
