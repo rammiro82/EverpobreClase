@@ -1,18 +1,26 @@
 #import "RGSNote.h"
 #import "RGSPhoto.h"
 #import "RGSNotebook.h"
+#import "RGSLocation.h"
 
+@import CoreLocation;
 
-@interface RGSNote ()
+@interface RGSNote () <CLLocationManagerDelegate>
 
-// Private interface goes here.
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
 @implementation RGSNote
 
+@synthesize locationManager = _locationManager;
+
+-(BOOL) hasLocation{
+    return (nil != self.location);
+}
+
 +(NSArray*) observableKeys{
-    return @[@"name", @"text", @"notebook", @"photo.imageData"];
+    return @[@"name", @"text", @"notebook", @"photo.imageData", @"location"];
 }
 
 // Custom logic goes here.
@@ -38,6 +46,23 @@
 -(void) awakeFromInsert{
     [super awakeFromInsert];
     
+    
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    
+    if (((status == kCLAuthorizationStatusAuthorizedAlways) || (status == kCLAuthorizationStatusNotDetermined)) && ([CLLocationManager locationServicesEnabled])) {
+        // tenemos localización
+        self.locationManager = [CLLocationManager new];
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        [self.locationManager startUpdatingLocation];
+        
+        // sólo datos recientes
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self zapLocationManager];
+        });
+    }
+    
     //se llama sólo una vez
     [self setupKVO];
 }
@@ -55,6 +80,24 @@
     [self tearDownKVO];
 }
 
+#pragma mark - CLLocationManagerDelegate
+-(void) locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    
+    // lo paramos
+    [self zapLocationManager];
+    
+    if (![self hasLocation]) {
+        
+        //pillamos la última localización
+        CLLocation *loc = [locations lastObject];
+        
+        //creamos location
+        self.location = [RGSLocation locationWithCLLocation:loc forNote:self];
+    }else{
+        NSLog(@"No se debería de llegar aquí");
+    }
+}
 
 #pragma mark - KVO
 -(void) setupKVO{
@@ -85,6 +128,14 @@
                        context:(void *)context{
     
     self.modificationDate = [NSDate date];
+}
+
+
+#pragma mark - Utils
+-(void)zapLocationManager{
+    [self.locationManager stopUpdatingLocation];
+    self.locationManager.delegate = nil;
+    self.locationManager = nil;
 }
 
 @end

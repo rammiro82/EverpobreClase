@@ -1,9 +1,12 @@
 #import "_RGSNote.h"
 
+@import CoreLocation;
+
 @class RGSNotebook;
 
 @interface RGSNote : _RGSNote {}
-// Custom logic goes here.
+
+@property (nonatomic, readonly) BOOL hasLocation;
 
 
 +(instancetype) noteWithName: (NSString *) name
