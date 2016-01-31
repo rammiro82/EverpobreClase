@@ -10,6 +10,7 @@
 @class RGSNote;
 
 @interface RGSPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 -(id) initWithModel:(RGSNote*) note;
 

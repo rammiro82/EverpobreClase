@@ -144,6 +144,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		286348E91C5D87980014AE52 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		2865F3B91C4AF4880038B6CC = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +174,7 @@
 		2865F3C41C4AF4890038B6CC /* EverpobreClase */ = {
 			isa = PBXGroup;
 			children = (
+				286348E91C5D87980014AE52 /* Protocols */,
 				280829911C5CC2D100A563C8 /* Views */,
 				287DEEBA1C5C8981003D4A86 /* Resources */,
 				2865F40F1C4DAA580038B6CC /* Categories */,

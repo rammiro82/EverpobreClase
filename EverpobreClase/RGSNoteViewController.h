@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "RGSNote.h"
+#import "RGSNotebook.h"
 
 @interface RGSNoteViewController : UIViewController
 
 -(id) initWithModel:(RGSNote*) model;
 
-
+-(id) initForNewNoteInNotebook:(RGSNotebook *) notebook;
 @end

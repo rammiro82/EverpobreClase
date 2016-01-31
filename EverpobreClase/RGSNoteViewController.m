@@ -9,6 +9,8 @@
 #import "RGSNoteViewController.h"
 #import "RGSNote.h"
 #import "RGSPhotoViewController.h"
+#import "RGSNotebook.h"
+
 #import <MapKit/MapKit.h>
 
 @interface RGSNoteViewController ()
@@ -19,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic) RGSNote *model;
+@property (nonatomic) BOOL new;
+@property (nonatomic) BOOL deleteCurrentNote;
 
 @property (nonatomic) CGRect oldFrame;
 @property (nonatomic) double animationDuration;
@@ -38,6 +42,16 @@
     return self;
 }
 
+-(id) initForNewNoteInNotebook:(RGSNotebook *) notebook{
+    RGSNote *newNote = [RGSNote noteWithName:@""
+                                    notebook:notebook
+                                     context:notebook.managedObjectContext];
+    
+    _new = YES;
+    
+    return [self initWithModel:newNote];
+}
+
 #pragma mark - Life cycle
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -55,15 +69,28 @@
     
     // alta en notificaciones del teclado
     [self startObservingKeyboard];
+    
+    if (self.new) {
+        // mostramos boton de cancelar
+        UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                target:self
+                                                                                action:@selector(cancel:)];
+        self.navigationItem.rightBarButtonItem = cancel;
+    }
 }
 
 -(void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    
-    // sincronizamos vistas -> modelo
-    self.model.name = self.nameView.text;
-    self.model.text = self.textView.text;
+    if (self.deleteCurrentNote) {
+        
+        [self.model.managedObjectContext deleteObject:self.model];
+    }else{
+        
+        // sincronizamos vistas -> modelo
+        self.model.name = self.nameView.text;
+        self.model.text = self.textView.text;
+    }
     
     // baja en notificaciones del teclado
     [self stopObservingKeyboard];
@@ -166,6 +193,13 @@
 
 -(IBAction)removeKeyboard:(id)sender{
     [self.view endEditing:YES];
+}
+
+#pragma mark - Utils
+-(void) cancel:(id) sender{
+    self.deleteCurrentNote = YES;
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

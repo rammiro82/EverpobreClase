@@ -100,7 +100,7 @@
     // Crear el controlador
     RGSNotesViewController *nVC = [RGSNotesViewController coreDataCollectionViewControllerWithFetchedResultsController:fc
                                                                                                                 layout:layout];
-    
+    nVC.notebook = nb;
     
     // Pushearlo
     [self.navigationController pushViewController:nVC

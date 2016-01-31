@@ -14,6 +14,7 @@
 
 @interface RGSNotesViewController : AGTCoreDataCollectionViewController
 
+@property (nonatomic, strong) RGSNotebook *notebook;
 
 -(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController
                                  layout:(UICollectionViewLayout*) layout

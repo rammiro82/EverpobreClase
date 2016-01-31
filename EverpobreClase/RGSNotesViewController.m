@@ -16,7 +16,6 @@
 static NSString *cellId = @"noteCellId";
 
 @interface RGSNotesViewController()
-@property (nonatomic, strong) RGSNotebook *notebook;
 
 @end
 
@@ -47,28 +46,23 @@ static NSString *cellId = @"noteCellId";
 #pragma mark - View LifeCycle
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
     [self registerNib];
     
+    self.title = @"Notas";
     self.collectionView.backgroundColor = [UIColor colorWithWhite:0.95
                                                             alpha:1];
     
-    self.title = @"Notas";
+    
+    UIBarButtonItem *itm = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                         target:self
+                                                                         action:@selector(addNewNote:)];
+    self.navigationItem.rightBarButtonItem = itm;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *itm = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNote:)];
     
-    self.navigationItem.rightBarButtonItem = itm;
-    
-}
-
--(void) addNewNote:(id) sender{
-    [RGSNote noteWithName:@"Nueva Nota"
-                 notebook:self.notebook
-                  context:self.notebook.managedObjectContext];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,6 +100,21 @@ static NSString *cellId = @"noteCellId";
                                          animated:YES];
 }
 
+
+
+#pragma mark - Utils
+-(void) addNewNote:(id) sender{
+    RGSNoteViewController *newNoteVC = [[RGSNoteViewController alloc] initForNewNoteInNotebook:self.notebook];
+    
+    [self.navigationController pushViewController:newNoteVC
+                                         animated:YES];
+    
+/*    [RGSNote noteWithName:@"Nueva Nota"
+                 notebook:self.notebook
+                  context:self.notebook.managedObjectContext];
+*/
+ 
+}
 /*
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellID = @"NoteCell";

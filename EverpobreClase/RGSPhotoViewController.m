@@ -10,6 +10,8 @@
 #import "RGSNote.h"
 #import "RGSPhoto.h"
 
+@import CoreImage;
+
 @interface RGSPhotoViewController ()
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)deletePhoto:(id)sender;
@@ -97,6 +99,48 @@
 }
 
 - (IBAction)applyFilter:(id)sender {
+    
+    // crear un contexto
+    CIContext *ctxt = [CIContext contextWithOptions:nil];
+    
+    // crear un CIImage de entrada
+    CIImage *img = [CIImage imageWithCGImage:self.model.photo.image.CGImage];
+    
+    // creamos un filtro
+    CIFilter *old = [CIFilter filterWithName:@"CIFalseColor"];
+    [old setDefaults];
+    [old setValue:img forKey:kCIInputImageKey];
+    
+    CIFilter *vignete = [CIFilter filterWithName:@"CIVignette"];
+    [vignete setDefaults];
+    [vignete setValue:@12 forKey:kCIInputIntensityKey];
+    
+    // encadenar los filtros
+    [vignete setValue:old.outputImage forKey:kCIInputImageKey];
+    
+    // obtenemos imagen de salida
+    CIImage *output = vignete.outputImage;
+    
+    // aplicar filtro
+    [self.activityView startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        CGImageRef res = [ctxt createCGImage:output
+                                    fromRect:[output extent]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.activityView stopAnimating];
+            
+            // guardamos la nueva imagen
+            UIImage *imagen = [UIImage imageWithCGImage:res];
+            
+            self.photoView.image = imagen;
+            
+            // liberar el cgimageref
+            CGImageRelease(res);
+        });
+    });
+    
 }
 
 - (IBAction)takePhoto:(id)sender {
