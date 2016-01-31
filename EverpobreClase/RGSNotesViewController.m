@@ -30,17 +30,19 @@ static NSString *cellId = @"noteCellId";
     [self.collectionView registerNib:nib
           forCellWithReuseIdentifier:cellId];
 }
-/*
--(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController style:(UITableViewStyle)aStyle notebook: (RGSNotebook* ) notebook{
+
+-(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController
+                                layout:(UICollectionViewLayout*) layout
+                              notebook: (RGSNotebook* ) notebook{
     
-    if (self = [super initWithFetchedResultsController:aFetchedResultsController style:aStyle]) {
+    if (self = [super initWithFetchedResultsController:aFetchedResultsController layout:layout]) {
         _notebook = notebook;
     }
     
     return self;
 
 }
-*/
+
 
 #pragma mark - View LifeCycle
 -(void) viewWillAppear:(BOOL)animated{
@@ -91,6 +93,20 @@ static NSString *cellId = @"noteCellId";
     return cell;
 }
 
+#pragma mark - Delegate
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    // obtener la nota
+    RGSNote *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // crear el controlador
+    RGSNoteViewController *noteVC = [[RGSNoteViewController alloc] initWithModel:note];
+    
+    // hacer push
+    [self.navigationController pushViewController:noteVC
+                                         animated:YES];
+}
+
+/*
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellID = @"NoteCell";
     
@@ -113,6 +129,7 @@ static NSString *cellId = @"noteCellId";
     return cell;
 }
 
+
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // obrener la nota
     RGSNote *note = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -122,5 +139,6 @@ static NSString *cellId = @"noteCellId";
     
     // hacer el push
     [self.navigationController pushViewController:nVC animated:YES];
-}
+}*/
+
 @end

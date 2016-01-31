@@ -55,7 +55,7 @@
     
     // sincronizar libreta --> celda
     cell.nameView.text = nb.name;
-    cell.numberOfNotesView.text = [NSString stringWithFormat:@"%d", nb.notes.count];
+    cell.numberOfNotesView.text = [NSString stringWithFormat:@"%lu", (unsigned long)nb.notes.count];
     
     // devolvemos la celda
     return cell;

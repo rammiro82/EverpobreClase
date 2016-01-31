@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "RGSNote.h"
+
 @interface RGSNoteViewController : UIViewController
+
 -(id) initWithModel:(RGSNote*) model;
+
+
 @end

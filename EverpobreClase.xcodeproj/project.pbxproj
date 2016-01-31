@@ -12,6 +12,7 @@
 		280829981C5CCC7500A563C8 /* RGSNoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280829971C5CCC7500A563C8 /* RGSNoteCollectionViewCell.xib */; };
 		2808299B1C5CCD9D00A563C8 /* RGSNoteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2808299A1C5CCD9D00A563C8 /* RGSNoteCellView.m */; };
 		2808299E1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2808299D1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m */; };
+		286348E81C5D7E5E0014AE52 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286348E71C5D7E5E0014AE52 /* MapKit.framework */; };
 		2865F3C71C4AF4890038B6CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3C61C4AF4890038B6CC /* main.m */; };
 		2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865F3C91C4AF4890038B6CC /* AppDelegate.m */; };
 		2865F3D21C4AF4890038B6CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2865F3D11C4AF4890038B6CC /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		2808299A1C5CCD9D00A563C8 /* RGSNoteCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNoteCellView.m; sourceTree = "<group>"; };
 		2808299C1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataCollectionViewController.h; sourceTree = "<group>"; };
 		2808299D1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataCollectionViewController.m; sourceTree = "<group>"; };
+		286348E71C5D7E5E0014AE52 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2865F3C21C4AF4890038B6CC /* EverpobreClase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverpobreClase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2865F3C61C4AF4890038B6CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2865F3C81C4AF4890038B6CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286348E81C5D7E5E0014AE52 /* MapKit.framework in Frameworks */,
 				287DEEB91C5C7B28003D4A86 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +147,7 @@
 		2865F3B91C4AF4880038B6CC = {
 			isa = PBXGroup;
 			children = (
+				286348E71C5D7E5E0014AE52 /* MapKit.framework */,
 				287DEEB81C5C7B28003D4A86 /* CoreLocation.framework */,
 				2865F3C41C4AF4890038B6CC /* EverpobreClase */,
 				2865F3DE1C4AF4890038B6CC /* EverpobreClaseTests */,

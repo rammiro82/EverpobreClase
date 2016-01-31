@@ -9,13 +9,14 @@
 #import "RGSNoteViewController.h"
 #import "RGSNote.h"
 #import "RGSPhotoViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface RGSNoteViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *creationDateView;
 @property (weak, nonatomic) IBOutlet UILabel *modificationDateView;
 @property (weak, nonatomic) IBOutlet UITextField *nameView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic) RGSNote *model;
 
@@ -46,7 +47,6 @@
     NSDateFormatter *fmt = [NSDateFormatter new];
     fmt.dateStyle = NSDateFormatterShortStyle;
     
-    self.creationDateView.text = [fmt stringFromDate:self.model.creationDate];
     self.modificationDateView.text = [fmt stringFromDate:self.model.modificationDate];
     self.nameView.text = self.model.name;
     self.textView.text = self.model.text;
@@ -61,7 +61,7 @@
     [super viewWillDisappear:animated];
     
     
-    // sincronizamos visas -> modelo
+    // sincronizamos vistas -> modelo
     self.model.name = self.nameView.text;
     self.model.text = self.textView.text;
     

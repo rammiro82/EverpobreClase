@@ -15,6 +15,8 @@
 @interface RGSNotesViewController : AGTCoreDataCollectionViewController
 
 
--(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController style:(UITableViewStyle)aStyle notebook: (RGSNotebook* ) notebook;
+-(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController
+                                 layout:(UICollectionViewLayout*) layout
+                              notebook: (RGSNotebook* ) notebook;
 
 @end
