@@ -15,34 +15,57 @@
 +(instancetype) locationWithCLLocation:(CLLocation *) location
                                forNote:(RGSNote *) note{
     
-    RGSLocation *loc = [self insertInManagedObjectContext:note.managedObjectContext];
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[RGSLocation entityName]];
+    NSPredicate *latitude = [NSPredicate predicateWithFormat:@"latitude == %f", location.coordinate.latitude];
+    NSPredicate *longitude = [NSPredicate predicateWithFormat:@"longitude == %f", location.coordinate.longitude];
+    req.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[latitude, longitude]];
     
-    loc.latitudValue = location.coordinate.latitude;
-    loc.longitudValue = location.coordinate.longitude;
-    [loc addNotesObject:note];
+    NSError *error = nil;
+    NSArray *results = [note.managedObjectContext executeFetchRequest:req
+                                                                error:&error];
     
-    // dirección
-    CLGeocoder *coder = [CLGeocoder new];
-    [coder reverseGeocodeLocation:location
-                completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-                    if (error) {
-                        NSLog(@"Erro while obtaining adress!\n%@", error);
-                    }else{
-                        CLPlacemark *placemark = [placemarks lastObject];
-                        
-                        // use the Contacts framework to create a readable formatter address
-                        CNMutablePostalAddress *postalAddress = [[CNMutablePostalAddress alloc] init];
-                        postalAddress.street = placemark.thoroughfare;
-                        postalAddress.city = placemark.locality;
-                        postalAddress.state = placemark.administrativeArea;
-                        postalAddress.postalCode = placemark.postalCode;
-                        postalAddress.country = placemark.country;
-                        postalAddress.ISOCountryCode = placemark.ISOcountryCode;
-                        
-                        loc.address = [CNPostalAddressFormatter stringFromPostalAddress:postalAddress style:CNPostalAddressFormatterStyleMailingAddress];
-                    }
-                }];
-    return loc;
+    NSAssert(results, @"Error al buscar");
+    
+    if ([results count]) {
+        //aprovechamos
+        RGSLocation *found = [results lastObject];
+        [found addNotesObject:note];
+        
+        return found;
+    }else{
+        // la creamos desde cero
+        
+        RGSLocation *loc = [self insertInManagedObjectContext:note.managedObjectContext];
+        
+        loc.latitudValue = location.coordinate.latitude;
+        loc.longitudValue = location.coordinate.longitude;
+        [loc addNotesObject:note];
+        
+        // dirección
+        CLGeocoder *coder = [CLGeocoder new];
+        [coder reverseGeocodeLocation:location
+                    completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+                        if (error) {
+                            NSLog(@"Erro while obtaining adress!\n%@", error);
+                        }else{
+                            CLPlacemark *placemark = [placemarks lastObject];
+                            
+                            // use the Contacts framework to create a readable formatter address
+                            CNMutablePostalAddress *postalAddress = [[CNMutablePostalAddress alloc] init];
+                            postalAddress.street = placemark.thoroughfare;
+                            postalAddress.city = placemark.locality;
+                            postalAddress.state = placemark.administrativeArea;
+                            postalAddress.postalCode = placemark.postalCode;
+                            postalAddress.country = placemark.country;
+                            postalAddress.ISOCountryCode = placemark.ISOcountryCode;
+                            
+                            loc.address = [CNPostalAddressFormatter stringFromPostalAddress:postalAddress style:CNPostalAddressFormatterStyleMailingAddress];
+                        }
+                    }];
+        return loc;
+    }
+    
+    
 }
 
 @end
