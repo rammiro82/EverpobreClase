@@ -91,7 +91,7 @@
     
     // gesture recog para location
     self.mapSnapshotView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *snapTap = [[UIGestureRecognizer alloc] initWithTarget:self
+    UITapGestureRecognizer *snapTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                            action:@selector(displayDetailLocation:)];
     [self.mapSnapshotView addGestureRecognizer:snapTap];
 }
