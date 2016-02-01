@@ -19,7 +19,7 @@
 @implementation RGSNoteCellView
 
 +(NSArray*)keys{
-    return @[@"name", @"modificationDate", @"photo.image", @"location", @"location.address", @"location.latitud", @"location.longitud"];
+    return @[@"name", @"modificationDate", @"photo.image", @"location.address", @"location.latitude", @"location.longitude"];
 }
 
 

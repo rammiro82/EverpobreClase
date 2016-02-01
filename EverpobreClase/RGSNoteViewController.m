@@ -71,8 +71,11 @@
     
     // snapshot
     UIImage *img = self.model.location.mapSnapshot.image;
+    self.mapSnapshotView.userInteractionEnabled = YES;
+    
     if (!img) {
         img = [UIImage imageNamed:@"noSnapshot.png"];
+        self.mapSnapshotView.userInteractionEnabled = NO;
     }
     self.mapSnapshotView.image = img;
     
@@ -90,7 +93,6 @@
     }
     
     // gesture recog para location
-    self.mapSnapshotView.userInteractionEnabled = YES;
     UITapGestureRecognizer *snapTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                            action:@selector(displayDetailLocation:)];
     [self.mapSnapshotView addGestureRecognizer:snapTap];
@@ -249,8 +251,11 @@
                        context:(void *)context{
     
     UIImage *img = self.model.location.mapSnapshot.image;
+    self.mapSnapshotView.userInteractionEnabled = YES;
+    
     if (!img) {
         img = [UIImage imageNamed:@"noSnapshot.png"];
+        self.mapSnapshotView.userInteractionEnabled = NO;
     }
     self.mapSnapshotView.image = img;
 }

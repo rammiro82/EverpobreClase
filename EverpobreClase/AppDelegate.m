@@ -52,6 +52,7 @@
     
     // meto los datos chorras
     if (ADD_DUMY_DATA) {
+        [self.model zapAllData];
         [self createDummyData];
     }
     
@@ -141,6 +142,10 @@
     NSUInteger numNotes = [[self.model executeFetchRequest:req
                                                 errorBlock:nil] count];
     
+    req = [NSFetchRequest fetchRequestWithEntityName:[RGSPhoto entityName]];
+    NSUInteger numPhotos = [[self.model executeFetchRequest:req
+                                                errorBlock:nil] count];
+    
     req = [NSFetchRequest fetchRequestWithEntityName:[RGSLocation entityName]];
     NSUInteger numLocations = [[self.model executeFetchRequest:req
                                                     errorBlock:nil] count];
@@ -153,6 +158,7 @@
     printf("Tot objects:    %lu\n", (unsigned long)self.model.context.registeredObjects.count);
     printf("Notebook        %lu\n", (unsigned long)numNotebooks);
     printf("Notes           %lu\n", (unsigned long)numNotes);
+    printf("Photos          %lu\n", (unsigned long)numPhotos);
     printf("Locations       %lu\n", (unsigned long)numLocations);
     printf("numMapSnapshots %lu\n", (unsigned long)numMapSnapshots);
     printf("-------------------------------------------------------------------\n");

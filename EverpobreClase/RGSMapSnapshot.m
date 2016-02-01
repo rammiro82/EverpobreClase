@@ -50,12 +50,18 @@
 -(void) startObserving{
     [self addObserver:self
            forKeyPath:@"location"
-              options:NSKeyValueObservingOptionNew context:NULL];
+              options:NSKeyValueObservingOptionNew
+              context:NULL];
 }
 
 -(void) stopObserving{
-    [self removeObserver:self
-              forKeyPath:@"location"];
+    @try {
+        [self removeObserver:self
+                  forKeyPath:@"location"];
+    }
+    @catch (NSException *exception) {
+        
+    }
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath
@@ -69,7 +75,7 @@
     MKMapSnapshotOptions *options = [MKMapSnapshotOptions new];
     options.region = MKCoordinateRegionMakeWithDistance(center, 300, 300);
     options.mapType = MKMapTypeHybrid;
-    options.size = CGSizeMake(150, 150);
+    options.size = CGSizeMake(300, 130);
     
     MKMapSnapshotter *shotter = [[MKMapSnapshotter alloc] initWithOptions:options];
     
