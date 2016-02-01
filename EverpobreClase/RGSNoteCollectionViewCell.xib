@@ -29,11 +29,15 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placemark.png" translatesAutoresizingMaskIntoConstraints="NO" id="nSn-M5-IMq">
+                        <rect key="frame" x="115" y="93" width="25" height="25"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="locationView" destination="nSn-M5-IMq" id="FPO-1k-Bnh"/>
                 <outlet property="modificationDateView" destination="iK0-xa-52j" id="1zx-mU-DB2"/>
                 <outlet property="photoView" destination="z5f-op-Y3X" id="Z7T-yd-9Mf"/>
                 <outlet property="titleView" destination="fhh-d3-1QG" id="SbG-QY-XOd"/>
@@ -41,4 +45,7 @@
             <point key="canvasLocation" x="342" y="190"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="placemark.png" width="22" height="22"/>
+    </resources>
 </document>

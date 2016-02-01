@@ -49,9 +49,11 @@
     
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
-    if (((status == kCLAuthorizationStatusAuthorizedAlways) || (status == kCLAuthorizationStatusNotDetermined)) && ([CLLocationManager locationServicesEnabled])) {
+    if (((status == kCLAuthorizationStatusAuthorizedAlways) ||
+         (status == kCLAuthorizationStatusNotDetermined)) &&
+        ([CLLocationManager locationServicesEnabled])) {
         // tenemos localización
-        self.locationManager = [CLLocationManager new];
+        self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         
@@ -82,7 +84,7 @@
 
 #pragma mark - CLLocationManagerDelegate
 -(void) locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray<CLLocation *> *)locations{
+     didUpdateLocations:(NSArray *)locations{
     
     // lo paramos
     [self zapLocationManager];

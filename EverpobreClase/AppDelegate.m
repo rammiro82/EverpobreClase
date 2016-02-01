@@ -13,6 +13,8 @@
 #import "RGSNotebookViewController.h"
 #import "UIViewController+Navigation.h"
 #import "Settings.h"
+#import "RGSLocation.h"
+#import "AGTCoreDataStack.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) AGTCoreDataStack *model;
@@ -30,7 +32,7 @@
     NSFetchRequest *req =[NSFetchRequest fetchRequestWithEntityName:[RGSNote entityName]];
     
     [RGSNote noteWithName:@"pampita" notebook:nb context:self.model.context];
-    [RGSNote noteWithName:@"marina" notebook:nb context:self.model.context];
+    [RGSNote noteWithName:@"marina" notebook:nb context:self.model.context]; 
     
     [RGSNote noteWithName:@"camila" notebook:nb2 context:self.model.context];
     
@@ -52,6 +54,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self printContextState];
     
     self.model = [AGTCoreDataStack coreDataStackWithModelName:@"Everpobre"];
     
@@ -137,7 +141,29 @@
 
 
 
-
+-(void) printContextState{
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[RGSNotebook entityName]];
+    NSUInteger numNotebooks = [[self.model executeFetchRequest:req errorBlock:nil] count];
+    
+    req = [NSFetchRequest fetchRequestWithEntityName:[RGSNote entityName]];
+    NSUInteger numNotes = [[self.model executeFetchRequest:req
+                                                errorBlock:nil] count];
+    
+    req = [NSFetchRequest fetchRequestWithEntityName:[RGSLocation entityName]];
+    NSUInteger numLocations = [[self.model executeFetchRequest:req
+                                                    errorBlock:nil] count];
+    
+    printf("-------------------------------------------------------------------\n");
+    printf("Tot objects:    %lu\n", (unsigned long)self.model.context.registeredObjects.count);
+    printf("Notebook        %lu\n", (unsigned long)numNotebooks);
+    printf("Notes           %lu\n", (unsigned long)numNotes);
+    printf("Locations       %lu\n", (unsigned long)numLocations);
+    printf("-------------------------------------------------------------------\n");
+    
+    [self performSelector:@selector(printContextState)
+               withObject:nil
+               afterDelay:5];
+}
 
 
 @end

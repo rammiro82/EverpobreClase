@@ -19,7 +19,7 @@
 @implementation RGSNoteCellView
 
 +(NSArray*)keys{
-    return @[@"title", @"modificationDate", @"photo.image"];
+    return @[@"name", @"modificationDate", @"photo.image", @"location", @"location.address", @"location.latitud", @"location.longitud"];
 }
 
 
@@ -56,6 +56,12 @@
     }
     
     self.photoView.image = img;
+    
+    if(self.note.hasLocation){
+        self.locationView.image = [UIImage imageNamed:@"placemark.png"];
+    }else{
+        self.locationView.image = nil;
+    }
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath

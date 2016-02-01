@@ -16,8 +16,8 @@
                                forNote:(RGSNote *) note{
     
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[RGSLocation entityName]];
-    NSPredicate *latitude = [NSPredicate predicateWithFormat:@"latitude == %f", location.coordinate.latitude];
-    NSPredicate *longitude = [NSPredicate predicateWithFormat:@"longitude == %f", location.coordinate.longitude];
+    NSPredicate *latitude = [NSPredicate predicateWithFormat:@"abs(latitude) - abs(%lf) < 0.001", location.coordinate.latitude];
+    NSPredicate *longitude = [NSPredicate predicateWithFormat:@"abs(longitude) - abs(%lf) < 0.001", location.coordinate.longitude];
     req.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[latitude, longitude]];
     
     NSError *error = nil;
