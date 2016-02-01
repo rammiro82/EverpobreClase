@@ -49,7 +49,7 @@
     
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
-    if (((status == kCLAuthorizationStatusAuthorizedAlways) ||
+    if (((status == kCLAuthorizationStatusAuthorizedAlways) || (status == kCLAuthorizationStatusAuthorizedWhenInUse) ||
          (status == kCLAuthorizationStatusNotDetermined)) &&
         ([CLLocationManager locationServicesEnabled])) {
         // tenemos localización
