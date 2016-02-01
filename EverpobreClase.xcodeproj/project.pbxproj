@@ -42,6 +42,8 @@
 		28B333071C5F051A00FAB8E1 /* _RGSMapSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B333041C5F051A00FAB8E1 /* _RGSMapSnapshot.m */; };
 		28B333081C5F051A00FAB8E1 /* RGSMapSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */; };
 		28B3330A1C5F0D8400FAB8E1 /* noSnapshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B333091C5F0D8400FAB8E1 /* noSnapshot.png */; };
+		28B3330E1C5F2B5100FAB8E1 /* RGSLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B3330C1C5F2B5100FAB8E1 /* RGSLocationViewController.m */; };
+		28B3330F1C5F2B5100FAB8E1 /* RGSLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B3330D1C5F2B5100FAB8E1 /* RGSLocationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,9 @@
 		28B333051C5F051A00FAB8E1 /* RGSMapSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSMapSnapshot.h; sourceTree = "<group>"; };
 		28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSMapSnapshot.m; sourceTree = "<group>"; };
 		28B333091C5F0D8400FAB8E1 /* noSnapshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noSnapshot.png; sourceTree = "<group>"; };
+		28B3330B1C5F2B5100FAB8E1 /* RGSLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSLocationViewController.h; sourceTree = "<group>"; };
+		28B3330C1C5F2B5100FAB8E1 /* RGSLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSLocationViewController.m; sourceTree = "<group>"; };
+		28B3330D1C5F2B5100FAB8E1 /* RGSLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSLocationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +285,9 @@
 				2865F41C1C52CC500038B6CC /* RGSPhotoViewController.h */,
 				2865F41D1C52CC500038B6CC /* RGSPhotoViewController.m */,
 				2865F41E1C52CC500038B6CC /* RGSPhotoViewController.xib */,
+				28B3330B1C5F2B5100FAB8E1 /* RGSLocationViewController.h */,
+				28B3330C1C5F2B5100FAB8E1 /* RGSLocationViewController.m */,
+				28B3330D1C5F2B5100FAB8E1 /* RGSLocationViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -385,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28B3330F1C5F2B5100FAB8E1 /* RGSLocationViewController.xib in Resources */,
 				2865F4201C52CC500038B6CC /* RGSPhotoViewController.xib in Resources */,
 				2865F4221C52CE190038B6CC /* Person_NoPhotoAvailable.png in Resources */,
 				2865F3D51C4AF4890038B6CC /* LaunchScreen.storyboard in Resources */,
@@ -421,6 +430,7 @@
 				2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */,
 				2808299E1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m in Sources */,
 				2865F41A1C5195200038B6CC /* RGSNoteViewController.m in Sources */,
+				28B3330E1C5F2B5100FAB8E1 /* RGSLocationViewController.m in Sources */,
 				2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */,
 				28B333071C5F051A00FAB8E1 /* _RGSMapSnapshot.m in Sources */,
 				287DEEB61C5AE2DB003D4A86 /* _RGSLocation.m in Sources */,

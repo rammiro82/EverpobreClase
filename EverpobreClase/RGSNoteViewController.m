@@ -12,7 +12,7 @@
 #import "RGSNotebook.h"
 #import "RGSLocation.h"
 #import "RGSMapSnapshot.h"
-
+#import "RGSLocationViewController.h"
 #import <MapKit/MapKit.h>
 
 @interface RGSNoteViewController ()
@@ -215,7 +215,10 @@
 }
 
 -(void)displayDetailLocation:(id) sender{
+    RGSLocationViewController *locVC = [[RGSLocationViewController alloc] initWithLocation:self.model.location];
     
+    [self.navigationController pushViewController:locVC
+                                         animated:YES];
 }
 
 #pragma mark - Utils

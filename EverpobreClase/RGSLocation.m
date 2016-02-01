@@ -1,6 +1,7 @@
 #import "RGSLocation.h"
 #import "RGSNote.h"
 #import "RGSMapSnapshot.h"
+#import <CoreLocation/CoreLocation.h>
 
 @import AddressBookUI;
 @import Contacts;
@@ -76,4 +77,19 @@
     
 }
 
+#pragma mark - MKAnnotation
+-(NSString* ) title{
+    return @"Aquí escribí una nota";
+}
+-(NSString*) subtitle{
+    NSArray *lines = [self.address componentsSeparatedByString:@"\n"];
+    NSMutableString *concat = [@"" mutableCopy];
+    for (NSString *line in lines) {
+        [concat appendFormat:@"%@ ", line];
+    }
+    return concat;
+}
+-(CLLocationCoordinate2D) coordinate{
+    return CLLocationCoordinate2DMake(self.latitudValue, self.longitudValue);
+}
 @end

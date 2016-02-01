@@ -57,10 +57,11 @@
         self.locationManager.delegate = self;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         
+        [self.locationManager requestWhenInUseAuthorization];
         [self.locationManager startUpdatingLocation];
         
         // sólo datos recientes
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self zapLocationManager];
         });
     }
