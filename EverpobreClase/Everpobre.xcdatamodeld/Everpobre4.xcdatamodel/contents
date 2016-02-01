@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="v4" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="Location" representedClassName="RGSLocation" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitud" attributeType="Double" defaultValueString="0.0" indexed="YES" syncable="YES"/>
+        <attribute name="longitud" attributeType="Double" defaultValueString="0.0" indexed="YES" syncable="YES"/>
+        <relationship name="mapSnapshot" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MapSnapshot" inverseName="location" inverseEntity="MapSnapshot" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="location" inverseEntity="Note" syncable="YES"/>
+    </entity>
+    <entity name="MapSnapshot" representedClassName="RGSMapSnapshot" syncable="YES">
+        <attribute name="snapshotData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="location" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="mapSnapshot" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="NamedEntity" representedClassName="RGSNamedEntity" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="modificationDate" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="RGSNote" parentEntity="NamedEntity" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Location" inverseName="notes" inverseEntity="Location" syncable="YES"/>
+        <relationship name="notebook" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="notes" inverseEntity="Notebook" syncable="YES"/>
+        <relationship name="photo" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="notes" inverseEntity="Photo" syncable="YES"/>
+    </entity>
+    <entity name="Notebook" representedClassName="RGSNotebook" parentEntity="NamedEntity" syncable="YES">
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="notebook" inverseEntity="Note" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName="RGSPhoto" syncable="YES">
+        <attribute name="imageData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="notes" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="photo" inverseEntity="Note" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Location" positionX="25" positionY="-0" width="128" height="118"/>
+        <element name="Note" positionX="-243" positionY="-6" width="128" height="103"/>
+        <element name="Notebook" positionX="-432" positionY="-33" width="128" height="58"/>
+        <element name="Photo" positionX="-63" positionY="225" width="128" height="73"/>
+        <element name="NamedEntity" positionX="-198" positionY="126" width="128" height="90"/>
+        <element name="MapSnapshot" positionX="-189" positionY="135" width="128" height="75"/>
+    </elements>
+</model>

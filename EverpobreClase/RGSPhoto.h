@@ -1,12 +1,12 @@
+#import "_RGSPhoto.h"
 
 @import UIKit;
 
-#import "_RGSPhoto.h"
-
-
 @interface RGSPhoto : _RGSPhoto {}
-// Custom logic goes here.
 
 @property (strong, nonatomic) UIImage *image;
+
++(instancetype) photoWithImage:(UIImage *) image
+                       context:(NSManagedObjectContext *) context;
 
 @end

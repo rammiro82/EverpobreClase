@@ -2,12 +2,7 @@
 // Make changes to RGSNotebook.h instead.
 
 @import CoreData;
-
-extern const struct RGSNotebookAttributes {
-	__unsafe_unretained NSString *creationDate;
-	__unsafe_unretained NSString *modificationDate;
-	__unsafe_unretained NSString *name;
-} RGSNotebookAttributes;
+#import "RGSNamedEntity.h"
 
 extern const struct RGSNotebookRelationships {
 	__unsafe_unretained NSString *notes;
@@ -15,26 +10,14 @@ extern const struct RGSNotebookRelationships {
 
 @class RGSNote;
 
-@interface RGSNotebookID : NSManagedObjectID {}
+@interface RGSNotebookID : RGSNamedEntityID {}
 @end
 
-@interface _RGSNotebook : NSManagedObject {}
+@interface _RGSNotebook : RGSNamedEntity {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) RGSNotebookID* objectID;
-
-@property (nonatomic, strong) NSDate* creationDate;
-
-//- (BOOL)validateCreationDate:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSDate* modificationDate;
-
-//- (BOOL)validateModificationDate:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* name;
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSSet *notes;
 
@@ -51,15 +34,6 @@ extern const struct RGSNotebookRelationships {
 @end
 
 @interface _RGSNotebook (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSDate*)primitiveCreationDate;
-- (void)setPrimitiveCreationDate:(NSDate*)value;
-
-- (NSDate*)primitiveModificationDate;
-- (void)setPrimitiveModificationDate:(NSDate*)value;
-
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
 
 - (NSMutableSet*)primitiveNotes;
 - (void)setPrimitiveNotes:(NSMutableSet*)value;

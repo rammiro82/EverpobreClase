@@ -2,11 +2,9 @@
 // Make changes to RGSNote.h instead.
 
 @import CoreData;
+#import "RGSNamedEntity.h"
 
 extern const struct RGSNoteAttributes {
-	__unsafe_unretained NSString *creationDate;
-	__unsafe_unretained NSString *modificationDate;
-	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *text;
 } RGSNoteAttributes;
 
@@ -20,26 +18,14 @@ extern const struct RGSNoteRelationships {
 @class RGSNotebook;
 @class RGSPhoto;
 
-@interface RGSNoteID : NSManagedObjectID {}
+@interface RGSNoteID : RGSNamedEntityID {}
 @end
 
-@interface _RGSNote : NSManagedObject {}
+@interface _RGSNote : RGSNamedEntity {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) RGSNoteID* objectID;
-
-@property (nonatomic, strong) NSDate* creationDate;
-
-//- (BOOL)validateCreationDate:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSDate* modificationDate;
-
-//- (BOOL)validateModificationDate:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* name;
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* text;
 
@@ -60,15 +46,6 @@ extern const struct RGSNoteRelationships {
 @end
 
 @interface _RGSNote (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSDate*)primitiveCreationDate;
-- (void)setPrimitiveCreationDate:(NSDate*)value;
-
-- (NSDate*)primitiveModificationDate;
-- (void)setPrimitiveModificationDate:(NSDate*)value;
-
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
 
 - (NSString*)primitiveText;
 - (void)setPrimitiveText:(NSString*)value;

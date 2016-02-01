@@ -39,8 +39,8 @@
         
         RGSLocation *loc = [self insertInManagedObjectContext:note.managedObjectContext];
         
-        loc.latitudValue = location.coordinate.latitude;
-        loc.longitudValue = location.coordinate.longitude;
+        loc.latitudeValue = location.coordinate.latitude;
+        loc.longitudeValue = location.coordinate.longitude;
         [loc addNotesObject:note];
         
         // creamos la dirección dirección
@@ -90,6 +90,6 @@
     return concat;
 }
 -(CLLocationCoordinate2D) coordinate{
-    return CLLocationCoordinate2DMake(self.latitudValue, self.longitudValue);
+    return CLLocationCoordinate2DMake(self.latitudeValue, self.longitudeValue);
 }
 @end

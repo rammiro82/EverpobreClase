@@ -25,7 +25,7 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    // crear un Annotation obj
+    [super viewWillAppear:animated];
     
     
     // pasarselo al mapView

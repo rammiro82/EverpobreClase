@@ -26,17 +26,9 @@ extern const struct RGSPhotoRelationships {
 
 //- (BOOL)validateImageData:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSSet *notes;
+@property (nonatomic, strong) RGSNote *notes;
 
-- (NSMutableSet*)notesSet;
-
-@end
-
-@interface _RGSPhoto (NotesCoreDataGeneratedAccessors)
-- (void)addNotes:(NSSet*)value_;
-- (void)removeNotes:(NSSet*)value_;
-- (void)addNotesObject:(RGSNote*)value_;
-- (void)removeNotesObject:(RGSNote*)value_;
+//- (BOOL)validateNotes:(id*)value_ error:(NSError**)error_;
 
 @end
 
@@ -45,7 +37,7 @@ extern const struct RGSPhotoRelationships {
 - (NSData*)primitiveImageData;
 - (void)setPrimitiveImageData:(NSData*)value;
 
-- (NSMutableSet*)primitiveNotes;
-- (void)setPrimitiveNotes:(NSMutableSet*)value;
+- (RGSNote*)primitiveNotes;
+- (void)setPrimitiveNotes:(RGSNote*)value;
 
 @end

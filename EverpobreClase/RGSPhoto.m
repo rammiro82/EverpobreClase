@@ -16,4 +16,18 @@
     [self setImageData:UIImageJPEGRepresentation(image, 1.0f)];
 }
 
+#pragma mark - Class Methods
++(instancetype) photoWithImage:(UIImage *) image
+                       context:(NSManagedObjectContext *) context{
+    
+    RGSPhoto *p = [NSEntityDescription insertNewObjectForEntityForName:[RGSPhoto entityName]
+                                                inManagedObjectContext:context];
+    
+    p.imageData = UIImageJPEGRepresentation(image, 0.9);
+    
+    
+    return p;
+    
+}
+
 @end

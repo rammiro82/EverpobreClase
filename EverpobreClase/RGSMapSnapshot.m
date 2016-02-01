@@ -3,13 +3,13 @@
 
 @interface RGSMapSnapshot ()
 
-
+// Private interface goes here.
 
 @end
 
 @implementation RGSMapSnapshot
 
-#pragma mark - propertie
+#pragma mark - properties
 -(UIImage *) image{
     return [UIImage imageWithData:self.snapshotData];
 }
@@ -63,7 +63,7 @@
                        context:(void *)context{
     
     // recalculamos el mapSnapshot
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(self.location.latitudValue, self.location.longitudValue);
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(self.location.latitudeValue, self.location.longitudeValue);
     
     MKMapSnapshotOptions *options = [MKMapSnapshotOptions new];
     options.region = MKCoordinateRegionMakeWithDistance(center, 300, 300);

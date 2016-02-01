@@ -3,12 +3,6 @@
 
 #import "_RGSNotebook.h"
 
-const struct RGSNotebookAttributes RGSNotebookAttributes = {
-	.creationDate = @"creationDate",
-	.modificationDate = @"modificationDate",
-	.name = @"name",
-};
-
 const struct RGSNotebookRelationships RGSNotebookRelationships = {
 	.notes = @"notes",
 };
@@ -41,12 +35,6 @@ const struct RGSNotebookRelationships RGSNotebookRelationships = {
 
 	return keyPaths;
 }
-
-@dynamic creationDate;
-
-@dynamic modificationDate;
-
-@dynamic name;
 
 @dynamic notes;
 

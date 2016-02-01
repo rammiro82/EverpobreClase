@@ -4,9 +4,6 @@
 #import "_RGSNote.h"
 
 const struct RGSNoteAttributes RGSNoteAttributes = {
-	.creationDate = @"creationDate",
-	.modificationDate = @"modificationDate",
-	.name = @"name",
 	.text = @"text",
 };
 
@@ -44,12 +41,6 @@ const struct RGSNoteRelationships RGSNoteRelationships = {
 
 	return keyPaths;
 }
-
-@dynamic creationDate;
-
-@dynamic modificationDate;
-
-@dynamic name;
 
 @dynamic text;
 

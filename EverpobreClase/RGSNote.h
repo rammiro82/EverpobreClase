@@ -2,8 +2,6 @@
 
 @import CoreLocation;
 
-@class RGSNotebook;
-
 @interface RGSNote : _RGSNote {}
 
 @property (nonatomic, readonly) BOOL hasLocation;

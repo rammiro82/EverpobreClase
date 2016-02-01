@@ -77,10 +77,10 @@
     
     // Configurarlo con un predicado
     r.fetchBatchSize = 25;
-    r.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name
+    r.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNamedEntityAttributes.name
                                                         ascending:YES
                                                          selector:@selector(caseInsensitiveCompare:)],
-                          [NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.modificationDate
+                          [NSSortDescriptor sortDescriptorWithKey:RGSNamedEntityAttributes.modificationDate
                                                         ascending:NO]];
     r.predicate = [NSPredicate predicateWithFormat:@"notebook == %@", nb];
     

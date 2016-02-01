@@ -23,48 +23,36 @@
 
 @implementation AppDelegate
 
--(void) createDummyDate{
-    RGSNotebook *nb = [RGSNotebook notebookWithName:@"Ex novias"
-                                            context:self.model.context];
-    RGSNotebook *nb2 = [RGSNotebook notebookWithName:@"Sitios por visitar"
-                                            context:self.model.context];
-    
-    //buscar objetos
-    NSFetchRequest *req =[NSFetchRequest fetchRequestWithEntityName:[RGSNote entityName]];
-    
-    [RGSNote noteWithName:@"pampita" notebook:nb context:self.model.context];
-    [RGSNote noteWithName:@"marina" notebook:nb context:self.model.context]; 
-    
-    [RGSNote noteWithName:@"camila" notebook:nb2 context:self.model.context];
-    
-    req.fetchBatchSize = 25;
-    //req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name ascending:YES]];
-    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name
-                                                          ascending:YES
-                                                           selector:@selector(caseInsensitiveCompare:)]];
-    req.predicate = [NSPredicate predicateWithFormat:@"notebook = %@", nb];
-    
-    NSArray *res = [self.model executeFetchRequest:req errorBlock:^(NSError *error) {
-        NSLog(@"Un poco la gagaste");
-    }];
+-(void) createDummyData{
+    RGSNotebook *novias = [RGSNotebook notebookWithName:@"Ex novias"
+                                                context:self.model.context];
+    [RGSNote noteWithName:@"pampita"
+                 notebook:novias
+                  context:self.model.context];
+    [RGSNote noteWithName:@"marina"
+                 notebook:novias
+                  context:self.model.context];
     
     
-//    [self.model saveWithErrorBlock:^(NSError *error) {
-//        NSLog(@"La cagamos");
-//    }];
+    RGSNotebook *lugares = [RGSNotebook notebookWithName:@"Sitios por visitar"
+                                                 context:self.model.context];
+    [RGSNote noteWithName:@"peru"
+                 notebook:lugares
+                  context:self.model.context];
+    
+    // Guardamos
+    [self save];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self printContextState];
     
-    self.model = [AGTCoreDataStack coreDataStackWithModelName:@"Everpobre"];
+    self.model = [AGTCoreDataStack coreDataStackWithModelName:@"EverpobrePro"];
     
     // meto los datos chorras
     if (ADD_DUMY_DATA) {
-        [self.model zapAllData];
-        [self createDummyDate];
-        
+        [self createDummyData];
     }
     
     if (AUTO_SAVE) {
@@ -79,16 +67,21 @@
     NSFetchRequest *r = [NSFetchRequest fetchRequestWithEntityName:[RGSNotebook entityName]];
     
     r.fetchBatchSize = 25;
-    r.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.name
+    r.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNamedEntityAttributes.name
                                                         ascending:YES
                                                          selector:@selector(caseInsensitiveCompare:)],
-                          [NSSortDescriptor sortDescriptorWithKey:RGSNoteAttributes.modificationDate
+                          [NSSortDescriptor sortDescriptorWithKey:RGSNamedEntityAttributes.modificationDate
                                                         ascending:NO]];
     
     // NSFetchedResultsController
-    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:r managedObjectContext:self.model.context sectionNameKeyPath:nil cacheName:nil];
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:r
+                                                                         managedObjectContext:self.model.context
+                                                                           sectionNameKeyPath:nil
+                                                                                    cacheName:nil];
     
-    RGSNotebookViewController *tVC = [[RGSNotebookViewController alloc] initWithFetchedResultsController:fc style:UITableViewStylePlain];
+    RGSNotebookViewController *tVC = [[RGSNotebookViewController alloc]
+                                      initWithFetchedResultsController:fc
+                                                                 style:UITableViewStylePlain];
     
     self.window.rootViewController = [tVC wrappedInNavigation];
     
@@ -98,17 +91,13 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [self.model saveWithErrorBlock:^(NSError *error) {
-        NSLog(@"Error al guardar en resignAcitve");
-    }];
+    // guardamos
+    [self save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    
-    
-    [self.model saveWithErrorBlock:^(NSError *error) {
-        NSLog(@"Error al guardar antes de ir a segundo plano");
-    }];
+    // guardamos
+    [self save];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -124,17 +113,19 @@
 }
 
 
-#pragma mark - AutoSave
-
--(void) autoSave{
+#pragma mark - Save
+-(void)save{
     
-    // guardamos
     [self.model saveWithErrorBlock:^(NSError *error) {
         NSLog(@"Error al guardar %s \n\n %@", __func__, error);
     }];
-    
-    // agendamos la siguiente llamada
-    NSLog(@"AutoGuardado");
+}
+
+
+#pragma mark - AutoSave
+-(void) autoSave{
+    NSLog(@"AutoGuardando");
+    [self save];
     [self performSelector:@selector(autoSave)
                withObject:nil
                afterDelay:AUTO_SAVE_DELAY];

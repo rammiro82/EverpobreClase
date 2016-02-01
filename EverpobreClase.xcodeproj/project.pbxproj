@@ -44,6 +44,9 @@
 		28B3330A1C5F0D8400FAB8E1 /* noSnapshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B333091C5F0D8400FAB8E1 /* noSnapshot.png */; };
 		28B3330E1C5F2B5100FAB8E1 /* RGSLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B3330C1C5F2B5100FAB8E1 /* RGSLocationViewController.m */; };
 		28B3330F1C5F2B5100FAB8E1 /* RGSLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28B3330D1C5F2B5100FAB8E1 /* RGSLocationViewController.xib */; };
+		28B333151C5F693F00FAB8E1 /* _RGSNamedEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B333121C5F693F00FAB8E1 /* _RGSNamedEntity.m */; };
+		28B333161C5F693F00FAB8E1 /* RGSNamedEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B333141C5F693F00FAB8E1 /* RGSNamedEntity.m */; };
+		28EB2D561C5F6EC600ABF325 /* EverpobrePro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28EB2D541C5F6EC600ABF325 /* EverpobrePro.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +126,12 @@
 		28B3330B1C5F2B5100FAB8E1 /* RGSLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSLocationViewController.h; sourceTree = "<group>"; };
 		28B3330C1C5F2B5100FAB8E1 /* RGSLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSLocationViewController.m; sourceTree = "<group>"; };
 		28B3330D1C5F2B5100FAB8E1 /* RGSLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGSLocationViewController.xib; sourceTree = "<group>"; };
+		28B333101C5F5CC200FAB8E1 /* Everpobre4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Everpobre4.xcdatamodel; sourceTree = "<group>"; };
+		28B333111C5F693F00FAB8E1 /* _RGSNamedEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RGSNamedEntity.h; sourceTree = "<group>"; };
+		28B333121C5F693F00FAB8E1 /* _RGSNamedEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGSNamedEntity.m; sourceTree = "<group>"; };
+		28B333131C5F693F00FAB8E1 /* RGSNamedEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSNamedEntity.h; sourceTree = "<group>"; };
+		28B333141C5F693F00FAB8E1 /* RGSNamedEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSNamedEntity.m; sourceTree = "<group>"; };
+		28EB2D551C5F6EC600ABF325 /* EverpobrePro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EverpobrePro.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +239,7 @@
 				2865F3EE1C4AF8340038B6CC /* AGTCoreDataStack.h */,
 				2865F3EF1C4AF8340038B6CC /* AGTCoreDataStack.m */,
 				2865F3F11C4B07AA0038B6CC /* Everpobre.xcdatamodeld */,
+				28EB2D541C5F6EC600ABF325 /* EverpobrePro.xcdatamodeld */,
 			);
 			name = Modelos;
 			sourceTree = "<group>";
@@ -237,6 +247,8 @@
 		2865F4061C4D65550038B6CC /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				28B333111C5F693F00FAB8E1 /* _RGSNamedEntity.h */,
+				28B333121C5F693F00FAB8E1 /* _RGSNamedEntity.m */,
 				28B333031C5F051A00FAB8E1 /* _RGSMapSnapshot.h */,
 				28B333041C5F051A00FAB8E1 /* _RGSMapSnapshot.m */,
 				287DEEB21C5AE2DB003D4A86 /* _RGSLocation.h */,
@@ -254,6 +266,8 @@
 		2865F4071C4D667E0038B6CC /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				28B333131C5F693F00FAB8E1 /* RGSNamedEntity.h */,
+				28B333141C5F693F00FAB8E1 /* RGSNamedEntity.m */,
 				28B333051C5F051A00FAB8E1 /* RGSMapSnapshot.h */,
 				28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */,
 				287DEEB41C5AE2DB003D4A86 /* RGSLocation.h */,
@@ -422,12 +436,14 @@
 			files = (
 				2865F4051C4D65490038B6CC /* RGSPhoto.m in Sources */,
 				2808299B1C5CCD9D00A563C8 /* RGSNoteCellView.m in Sources */,
+				28B333151C5F693F00FAB8E1 /* _RGSNamedEntity.m in Sources */,
 				2865F4121C4DAA990038B6CC /* UIViewController+Navigation.m in Sources */,
 				280829961C5CC62900A563C8 /* RGSNotebookCellView.m in Sources */,
 				2865F40B1C4DA0400038B6CC /* AGTCoreDataTableViewController.m in Sources */,
 				2865F4161C5187EC0038B6CC /* RGSNotesViewController.m in Sources */,
 				2865F4041C4D65490038B6CC /* RGSNotebook.m in Sources */,
 				2865F40E1C4DA1680038B6CC /* RGSNotebookViewController.m in Sources */,
+				28EB2D561C5F6EC600ABF325 /* EverpobrePro.xcdatamodeld in Sources */,
 				2808299E1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m in Sources */,
 				2865F41A1C5195200038B6CC /* RGSNoteViewController.m in Sources */,
 				28B3330E1C5F2B5100FAB8E1 /* RGSLocationViewController.m in Sources */,
@@ -438,6 +454,7 @@
 				2865F4001C4D65490038B6CC /* _RGSNote.m in Sources */,
 				28B333081C5F051A00FAB8E1 /* RGSMapSnapshot.m in Sources */,
 				2865F4021C4D65490038B6CC /* _RGSPhoto.m in Sources */,
+				28B333161C5F693F00FAB8E1 /* RGSNamedEntity.m in Sources */,
 				2865F3F31C4B07AB0038B6CC /* Everpobre.xcdatamodeld in Sources */,
 				2865F4011C4D65490038B6CC /* _RGSNotebook.m in Sources */,
 				2865F4031C4D65490038B6CC /* RGSNote.m in Sources */,
@@ -643,12 +660,23 @@
 		2865F3F11C4B07AA0038B6CC /* Everpobre.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				28B333101C5F5CC200FAB8E1 /* Everpobre4.xcdatamodel */,
 				28B333021C5F028B00FAB8E1 /* Everpobre3.xcdatamodel */,
 				287DEEB11C5AE014003D4A86 /* Everpobre2.xcdatamodel */,
 				2865F3F21C4B07AB0038B6CC /* Everpobre.xcdatamodel */,
 			);
-			currentVersion = 28B333021C5F028B00FAB8E1 /* Everpobre3.xcdatamodel */;
+			currentVersion = 28B333101C5F5CC200FAB8E1 /* Everpobre4.xcdatamodel */;
 			path = Everpobre.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		28EB2D541C5F6EC600ABF325 /* EverpobrePro.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				28EB2D551C5F6EC600ABF325 /* EverpobrePro.xcdatamodel */,
+			);
+			currentVersion = 28EB2D551C5F6EC600ABF325 /* EverpobrePro.xcdatamodel */;
+			path = EverpobrePro.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
