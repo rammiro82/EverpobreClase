@@ -9,14 +9,14 @@
 @implementation RGSNotebook
 
 #pragma mark - Class Methods
-
 +(NSArray*) observableKeys{
-    return @[@"name", @"notes"];
+    return @[@"creationDate", @"name", @"notes"];
 }
 
 // Custom logic goes here.
 +(instancetype) notebookWithName: (NSString*) name
                          context:(NSManagedObjectContext *) context{
+    
     RGSNotebook *nb = [self insertInManagedObjectContext:context];
     
     nb.name = name;
