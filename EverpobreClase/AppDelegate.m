@@ -15,6 +15,7 @@
 #import "Settings.h"
 #import "RGSLocation.h"
 #import "AGTCoreDataStack.h"
+#import "RGSMapSnapshot.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) AGTCoreDataStack *model;
@@ -129,7 +130,7 @@
     
     // guardamos
     [self.model saveWithErrorBlock:^(NSError *error) {
-        NSLog(@"Errod al autorguardar");
+        NSLog(@"Error al guardar %s \n\n %@", __func__, error);
     }];
     
     // agendamos la siguiente llamada
@@ -153,11 +154,16 @@
     NSUInteger numLocations = [[self.model executeFetchRequest:req
                                                     errorBlock:nil] count];
     
+    req = [NSFetchRequest fetchRequestWithEntityName:[RGSMapSnapshot entityName]];
+    NSUInteger numMapSnapshots = [[self.model executeFetchRequest:req
+                                                    errorBlock:nil] count];
+    
     printf("-------------------------------------------------------------------\n");
     printf("Tot objects:    %lu\n", (unsigned long)self.model.context.registeredObjects.count);
     printf("Notebook        %lu\n", (unsigned long)numNotebooks);
     printf("Notes           %lu\n", (unsigned long)numNotes);
     printf("Locations       %lu\n", (unsigned long)numLocations);
+    printf("numMapSnapshots %lu\n", (unsigned long)numMapSnapshots);
     printf("-------------------------------------------------------------------\n");
     
     [self performSelector:@selector(printContextState)

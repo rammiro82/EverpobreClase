@@ -10,6 +10,8 @@
 #import "RGSNote.h"
 #import "RGSPhotoViewController.h"
 #import "RGSNotebook.h"
+#import "RGSLocation.h"
+#import "RGSMapSnapshot.h"
 
 #import <MapKit/MapKit.h>
 
@@ -18,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIImageView *mapSnapshotView;
 
 @property (strong, nonatomic) RGSNote *model;
 @property (nonatomic) BOOL new;
@@ -67,6 +69,15 @@
     
     self.oldFrame = self.textView.frame;
     
+    // snapshot
+    UIImage *img = self.model.location.mapSnapshot.image;
+    if (!img) {
+        img = [UIImage imageNamed:@"noSnapshot.png"];
+    }
+    self.mapSnapshotView.image = img;
+    
+    [self startObservingSnapshot];
+    
     // alta en notificaciones del teclado
     [self startObservingKeyboard];
     
@@ -77,6 +88,12 @@
                                                                                 action:@selector(cancel:)];
         self.navigationItem.rightBarButtonItem = cancel;
     }
+    
+    // gesture recog para location
+    self.mapSnapshotView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *snapTap = [[UIGestureRecognizer alloc] initWithTarget:self
+                                                                           action:@selector(displayDetailLocation:)];
+    [self.mapSnapshotView addGestureRecognizer:snapTap];
 }
 
 -(void) viewWillDisappear:(BOOL)animated{
@@ -94,6 +111,8 @@
     
     // baja en notificaciones del teclado
     [self stopObservingKeyboard];
+    
+    [self stopObservingSnapshot];
 }
 
 #pragma mark - Notifications
@@ -195,6 +214,10 @@
     [self.view endEditing:YES];
 }
 
+-(void)displayDetailLocation:(id) sender{
+    
+}
+
 #pragma mark - Utils
 -(void) cancel:(id) sender{
     self.deleteCurrentNote = YES;
@@ -202,14 +225,31 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+#pragma mark - KVO
+-(void) startObservingSnapshot{
+    [self.model addObserver:self
+           forKeyPath:@"location.mapSnapshot.snapshotData"
+              options:NSKeyValueObservingOptionNew
+              context:NULL];
 }
-*/
+
+-(void) stopObservingSnapshot{
+    [self.model removeObserver:self
+              forKeyPath:@"location.mapSnapshot.snapshotData"];
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSString *,id> *)change
+                       context:(void *)context{
+    
+    UIImage *img = self.model.location.mapSnapshot.image;
+    if (!img) {
+        img = [UIImage imageNamed:@"noSnapshot.png"];
+    }
+    self.mapSnapshotView.image = img;
+}
 
 @end

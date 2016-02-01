@@ -1,5 +1,6 @@
 #import "RGSLocation.h"
 #import "RGSNote.h"
+#import "RGSMapSnapshot.h"
 
 @import AddressBookUI;
 @import Contacts;
@@ -41,7 +42,7 @@
         loc.longitudValue = location.coordinate.longitude;
         [loc addNotesObject:note];
         
-        // dirección
+        // creamos la dirección dirección
         CLGeocoder *coder = [CLGeocoder new];
         [coder reverseGeocodeLocation:location
                     completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
@@ -60,8 +61,15 @@
                             postalAddress.ISOCountryCode = placemark.ISOcountryCode;
                             
                             loc.address = [CNPostalAddressFormatter stringFromPostalAddress:postalAddress style:CNPostalAddressFormatterStyleMailingAddress];
+                            
+                            NSLog(@"Address is %@", loc.address);
                         }
                     }];
+        
+        
+        // creamos un mapSnapshot
+        loc.mapSnapshot = [RGSMapSnapshot mapSnapshotForLocation:loc];
+        
         return loc;
     }
     

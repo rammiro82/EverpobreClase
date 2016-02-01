@@ -5,7 +5,7 @@
         <attribute name="latitud" attributeType="Double" defaultValueString="0.0" indexed="YES" syncable="YES"/>
         <attribute name="longitud" attributeType="Double" defaultValueString="0.0" indexed="YES" syncable="YES"/>
         <relationship name="mapSnapshot" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MapSnapshot" inverseName="location" inverseEntity="MapSnapshot" syncable="YES"/>
-        <relationship name="notes" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="location" inverseEntity="Note" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="location" inverseEntity="Note" syncable="YES"/>
     </entity>
     <entity name="MapSnapshot" representedClassName="RGSMapSnapshot" syncable="YES">
         <attribute name="snapshotData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>

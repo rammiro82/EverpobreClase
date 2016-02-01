@@ -41,6 +41,7 @@
 		287DEEBC1C5C8998003D4A86 /* placemark.png in Resources */ = {isa = PBXBuildFile; fileRef = 287DEEBB1C5C8998003D4A86 /* placemark.png */; };
 		28B333071C5F051A00FAB8E1 /* _RGSMapSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B333041C5F051A00FAB8E1 /* _RGSMapSnapshot.m */; };
 		28B333081C5F051A00FAB8E1 /* RGSMapSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */; };
+		28B3330A1C5F0D8400FAB8E1 /* noSnapshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B333091C5F0D8400FAB8E1 /* noSnapshot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		28B333041C5F051A00FAB8E1 /* _RGSMapSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGSMapSnapshot.m; sourceTree = "<group>"; };
 		28B333051C5F051A00FAB8E1 /* RGSMapSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSMapSnapshot.h; sourceTree = "<group>"; };
 		28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSMapSnapshot.m; sourceTree = "<group>"; };
+		28B333091C5F0D8400FAB8E1 /* noSnapshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noSnapshot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +296,7 @@
 		287DEEBA1C5C8981003D4A86 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				28B333091C5F0D8400FAB8E1 /* noSnapshot.png */,
 				2865F4211C52CE190038B6CC /* Person_NoPhotoAvailable.png */,
 				287DEEBB1C5C8998003D4A86 /* placemark.png */,
 			);
@@ -385,6 +388,7 @@
 				2865F4201C52CC500038B6CC /* RGSPhotoViewController.xib in Resources */,
 				2865F4221C52CE190038B6CC /* Person_NoPhotoAvailable.png in Resources */,
 				2865F3D51C4AF4890038B6CC /* LaunchScreen.storyboard in Resources */,
+				28B3330A1C5F0D8400FAB8E1 /* noSnapshot.png in Resources */,
 				2865F41B1C5195200038B6CC /* RGSNoteViewController.xib in Resources */,
 				287DEEBC1C5C8998003D4A86 /* placemark.png in Resources */,
 				280829931C5CC41F00A563C8 /* RGSNotebookCellView.xib in Resources */,
