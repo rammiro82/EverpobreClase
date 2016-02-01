@@ -230,8 +230,6 @@
 		2865F4061C4D65550038B6CC /* Machine */ = {
 			isa = PBXGroup;
 			children = (
-				28B333051C5F051A00FAB8E1 /* RGSMapSnapshot.h */,
-				28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */,
 				28B333031C5F051A00FAB8E1 /* _RGSMapSnapshot.h */,
 				28B333041C5F051A00FAB8E1 /* _RGSMapSnapshot.m */,
 				287DEEB21C5AE2DB003D4A86 /* _RGSLocation.h */,
@@ -249,6 +247,8 @@
 		2865F4071C4D667E0038B6CC /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				28B333051C5F051A00FAB8E1 /* RGSMapSnapshot.h */,
+				28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */,
 				287DEEB41C5AE2DB003D4A86 /* RGSLocation.h */,
 				287DEEB51C5AE2DB003D4A86 /* RGSLocation.m */,
 				2865F3FA1C4D65490038B6CC /* RGSNote.h */,

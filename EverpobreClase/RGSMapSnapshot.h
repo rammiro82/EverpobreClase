@@ -1,5 +1,13 @@
+
+@import UIKit;
+@import MapKit;
+
 #import "_RGSMapSnapshot.h"
 
 @interface RGSMapSnapshot : _RGSMapSnapshot {}
-// Custom logic goes here.
+
+@property (nonatomic, strong) UIImage *image;
+
++(instancetype) mapSnapshotForLocation:(RGSLocation*) location;
+
 @end
