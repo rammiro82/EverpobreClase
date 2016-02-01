@@ -1,5 +1,6 @@
 #import "RGSMapSnapshot.h"
 #import "RGSLocation.h"
+#import "RGSPhoto.h"
 
 @interface RGSMapSnapshot ()
 

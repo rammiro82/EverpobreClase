@@ -1,4 +1,5 @@
 #import "_RGSMapSnapshot.h"
+#import "RGSPhoto.h"
 
 @import UIKit;
 @import MapKit;

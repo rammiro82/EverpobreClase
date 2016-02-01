@@ -1,4 +1,5 @@
 #import "_RGSNote.h"
+#import "RGSPhoto.h"
 
 @import CoreLocation;
 

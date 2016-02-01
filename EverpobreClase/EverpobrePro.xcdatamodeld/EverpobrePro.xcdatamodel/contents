@@ -26,14 +26,14 @@
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="notebook" inverseEntity="Note" syncable="YES"/>
     </entity>
     <entity name="Photo" representedClassName="RGSPhoto" syncable="YES">
-        <attribute name="imageData" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="notes" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="photo" inverseEntity="Note" syncable="YES"/>
     </entity>
     <elements>
         <element name="NamedEntity" positionX="-324" positionY="-108" width="128" height="90"/>
         <element name="Location" positionX="-360" positionY="177" width="128" height="118"/>
         <element name="MapSnapshot" positionX="-36" positionY="45" width="128" height="75"/>
-        <element name="Photo" positionX="-657" positionY="81" width="128" height="75"/>
+        <element name="Photo" positionX="-657" positionY="81" width="128" height="73"/>
         <element name="Note" positionX="-432" positionY="27" width="128" height="103"/>
         <element name="Notebook" positionX="-209" positionY="-9" width="128" height="58"/>
     </elements>
