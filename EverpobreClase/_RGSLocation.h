@@ -10,9 +10,11 @@ extern const struct RGSLocationAttributes {
 } RGSLocationAttributes;
 
 extern const struct RGSLocationRelationships {
+	__unsafe_unretained NSString *mapSnapshot;
 	__unsafe_unretained NSString *notes;
 } RGSLocationRelationships;
 
+@class RGSMapSnapshot;
 @class RGSNote;
 
 @interface RGSLocationID : NSManagedObjectID {}
@@ -44,6 +46,10 @@ extern const struct RGSLocationRelationships {
 
 //- (BOOL)validateLongitud:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) RGSMapSnapshot *mapSnapshot;
+
+//- (BOOL)validateMapSnapshot:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSSet *notes;
 
 - (NSMutableSet*)notesSet;
@@ -74,6 +80,9 @@ extern const struct RGSLocationRelationships {
 
 - (double)primitiveLongitudValue;
 - (void)setPrimitiveLongitudValue:(double)value_;
+
+- (RGSMapSnapshot*)primitiveMapSnapshot;
+- (void)setPrimitiveMapSnapshot:(RGSMapSnapshot*)value;
 
 - (NSMutableSet*)primitiveNotes;
 - (void)setPrimitiveNotes:(NSMutableSet*)value;

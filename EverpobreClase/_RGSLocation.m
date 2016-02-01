@@ -10,6 +10,7 @@ const struct RGSLocationAttributes RGSLocationAttributes = {
 };
 
 const struct RGSLocationRelationships RGSLocationRelationships = {
+	.mapSnapshot = @"mapSnapshot",
 	.notes = @"notes",
 };
 
@@ -94,6 +95,8 @@ const struct RGSLocationRelationships RGSLocationRelationships = {
 - (void)setPrimitiveLongitudValue:(double)value_ {
 	[self setPrimitiveLongitud:@(value_)];
 }
+
+@dynamic mapSnapshot;
 
 @dynamic notes;
 

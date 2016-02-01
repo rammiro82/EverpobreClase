@@ -39,6 +39,8 @@
 		287DEEB71C5AE2DB003D4A86 /* RGSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DEEB51C5AE2DB003D4A86 /* RGSLocation.m */; };
 		287DEEB91C5C7B28003D4A86 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287DEEB81C5C7B28003D4A86 /* CoreLocation.framework */; };
 		287DEEBC1C5C8998003D4A86 /* placemark.png in Resources */ = {isa = PBXBuildFile; fileRef = 287DEEBB1C5C8998003D4A86 /* placemark.png */; };
+		28B333071C5F051A00FAB8E1 /* _RGSMapSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B333041C5F051A00FAB8E1 /* _RGSMapSnapshot.m */; };
+		28B333081C5F051A00FAB8E1 /* RGSMapSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,11 @@
 		287DEEB51C5AE2DB003D4A86 /* RGSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSLocation.m; sourceTree = "<group>"; };
 		287DEEB81C5C7B28003D4A86 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		287DEEBB1C5C8998003D4A86 /* placemark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placemark.png; sourceTree = "<group>"; };
+		28B333021C5F028B00FAB8E1 /* Everpobre3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Everpobre3.xcdatamodel; sourceTree = "<group>"; };
+		28B333031C5F051A00FAB8E1 /* _RGSMapSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RGSMapSnapshot.h; sourceTree = "<group>"; };
+		28B333041C5F051A00FAB8E1 /* _RGSMapSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGSMapSnapshot.m; sourceTree = "<group>"; };
+		28B333051C5F051A00FAB8E1 /* RGSMapSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGSMapSnapshot.h; sourceTree = "<group>"; };
+		28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSMapSnapshot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +230,10 @@
 		2865F4061C4D65550038B6CC /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				28B333051C5F051A00FAB8E1 /* RGSMapSnapshot.h */,
+				28B333061C5F051A00FAB8E1 /* RGSMapSnapshot.m */,
+				28B333031C5F051A00FAB8E1 /* _RGSMapSnapshot.h */,
+				28B333041C5F051A00FAB8E1 /* _RGSMapSnapshot.m */,
 				287DEEB21C5AE2DB003D4A86 /* _RGSLocation.h */,
 				287DEEB31C5AE2DB003D4A86 /* _RGSLocation.m */,
 				2865F3F41C4D65490038B6CC /* _RGSNote.h */,
@@ -407,9 +418,11 @@
 				2808299E1C5CCEFA00A563C8 /* AGTCoreDataCollectionViewController.m in Sources */,
 				2865F41A1C5195200038B6CC /* RGSNoteViewController.m in Sources */,
 				2865F3CA1C4AF4890038B6CC /* AppDelegate.m in Sources */,
+				28B333071C5F051A00FAB8E1 /* _RGSMapSnapshot.m in Sources */,
 				287DEEB61C5AE2DB003D4A86 /* _RGSLocation.m in Sources */,
 				2865F41F1C52CC500038B6CC /* RGSPhotoViewController.m in Sources */,
 				2865F4001C4D65490038B6CC /* _RGSNote.m in Sources */,
+				28B333081C5F051A00FAB8E1 /* RGSMapSnapshot.m in Sources */,
 				2865F4021C4D65490038B6CC /* _RGSPhoto.m in Sources */,
 				2865F3F31C4B07AB0038B6CC /* Everpobre.xcdatamodeld in Sources */,
 				2865F4011C4D65490038B6CC /* _RGSNotebook.m in Sources */,
@@ -616,10 +629,11 @@
 		2865F3F11C4B07AA0038B6CC /* Everpobre.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				28B333021C5F028B00FAB8E1 /* Everpobre3.xcdatamodel */,
 				287DEEB11C5AE014003D4A86 /* Everpobre2.xcdatamodel */,
 				2865F3F21C4B07AB0038B6CC /* Everpobre.xcdatamodel */,
 			);
-			currentVersion = 287DEEB11C5AE014003D4A86 /* Everpobre2.xcdatamodel */;
+			currentVersion = 28B333021C5F028B00FAB8E1 /* Everpobre3.xcdatamodel */;
 			path = Everpobre.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
