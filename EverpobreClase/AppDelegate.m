@@ -85,10 +85,11 @@
                                       initWithFetchedResultsController:fcNotebooks
                                                                  style:UITableViewStylePlain];
     UINavigationController *navVC = [tableVC wrappedInNavigation];
-    navVC.tabBarItem.title = @"Libretas";
     
     // nsfech de las locations de todas las notas
     NSFetchRequest *reqLocations = [NSFetchRequest fetchRequestWithEntityName:[RGSLocation entityName]];
+    
+    reqLocations.fetchBatchSize = 25;
     reqLocations.sortDescriptors =@[[NSSortDescriptor sortDescriptorWithKey:RGSLocationAttributes.address
                                                                   ascending:YES
                                                                    selector:@selector(caseInsensitiveCompare:)]];
@@ -98,12 +99,26 @@
                                                                                              cacheName:nil];
     
     // creamos un mapVC para mostrar las locations
+    //NSArray<RGSLocation *> *locations = [self.model executeFetchRequest:reqLocations errorBlock:nil];
+    //RGSLocationViewController *mapVC = [[RGSLocationViewController alloc] initWithLocations:locations];
     RGSLocationViewController *mapVC = [[RGSLocationViewController alloc] initWithFechedResultsController:fcLocations];
-    mapVC.tabBarItem.title = @"Mapa";
     
     //cambiamos el rootVC por un tabVC
     UITabBarController *tabVC = [[UITabBarController alloc] init];
     
+    // damos estilo al tabBar y a sus elementos
+    navVC.tabBarItem.title = @"Libretas";
+    mapVC.tabBarItem.title = @"Mapa";
+    
+    
+    [navVC.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"home_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home.png"]];
+    
+    [mapVC.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"maps_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"maps.png"]];
+    
+    
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
     [tabVC setViewControllers:@[navVC, mapVC] animated:YES];
     
     self.window.rootViewController = tabVC;
