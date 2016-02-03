@@ -20,15 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"Everpobre";
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
     // creamos botón de barra de +
-    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNotebook:)];
+    UIBarButtonItem *addBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                            target:self
+                                                                            action:@selector(addNewNotebook:)];
     
     // lo añadimos
-    self.navigationItem.rightBarButtonItem = btn;
-    
+    self.navigationItem.rightBarButtonItem = addBtn;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+
     //registramos el nib
     UINib *cellNib = [UINib nibWithNibName:@"RGSNotebookCellView" bundle:nil];
     
@@ -36,13 +41,26 @@
          forCellReuseIdentifier:[RGSNotebookCellView cellId]];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - DataSource
 -(void) addNewNotebook:(id) sender{
     [RGSNotebook notebookWithName:@"New Notebook" context:self.fetchedResultsController.managedObjectContext];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Averiguar de que libreta nos esta hablando
+        RGSNotebook *del = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        //Quitarla del modelo
+        [self.fetchedResultsController.managedObjectContext deleteObject:del];
+        
+    }
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

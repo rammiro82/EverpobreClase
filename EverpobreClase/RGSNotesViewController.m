@@ -52,16 +52,15 @@ static NSString *cellId = @"noteCellId";
     self.collectionView.backgroundColor = [UIColor colorWithWhite:0.95
                                                             alpha:1];
     
-    
-    UIBarButtonItem *itm = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                         target:self
-                                                                         action:@selector(addNewNote:)];
-    self.navigationItem.rightBarButtonItem = itm;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *itm = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                         target:self
+                                                                         action:@selector(addNewNote:)];
+    self.navigationItem.rightBarButtonItem = itm;
     
 }
 

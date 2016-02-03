@@ -16,6 +16,7 @@
 #import "RGSLocation.h"
 #import "AGTCoreDataStack.h"
 #import "RGSMapSnapshot.h"
+#import "RGSLocationViewController.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) AGTCoreDataStack *model;
@@ -60,31 +61,52 @@
         [self autoSave];
     }
     
-    // creo la window y tal y cual
+    // creo la window tal y cual
     self.window = [[UIWindow alloc] initWithFrame:
                    [[UIScreen mainScreen] bounds]];
     
-    //  nsfecth request
-    NSFetchRequest *r = [NSFetchRequest fetchRequestWithEntityName:[RGSNotebook entityName]];
+    //  nsfecth request Notebooks
+    NSFetchRequest *reqNotebooks = [NSFetchRequest fetchRequestWithEntityName:[RGSNotebook entityName]];
     
-    r.fetchBatchSize = 25;
-    r.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNamedEntityAttributes.name
+    reqNotebooks.fetchBatchSize = 25;
+    reqNotebooks.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RGSNamedEntityAttributes.name
                                                         ascending:YES
                                                          selector:@selector(caseInsensitiveCompare:)],
                           [NSSortDescriptor sortDescriptorWithKey:RGSNamedEntityAttributes.modificationDate
                                                         ascending:NO]];
     
-    // NSFetchedResultsController
-    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:r
+    // NSFetchedResultsController Notebooks
+    NSFetchedResultsController *fcNotebooks = [[NSFetchedResultsController alloc] initWithFetchRequest:reqNotebooks
                                                                          managedObjectContext:self.model.context
                                                                            sectionNameKeyPath:nil
                                                                                     cacheName:nil];
-    
-    RGSNotebookViewController *tVC = [[RGSNotebookViewController alloc]
-                                      initWithFetchedResultsController:fc
+    // VC de la lista de notebook
+    RGSNotebookViewController *tableVC = [[RGSNotebookViewController alloc]
+                                      initWithFetchedResultsController:fcNotebooks
                                                                  style:UITableViewStylePlain];
+    UINavigationController *navVC = [tableVC wrappedInNavigation];
+    navVC.tabBarItem.title = @"Libretas";
     
-    self.window.rootViewController = [tVC wrappedInNavigation];
+    // nsfech de las locations de todas las notas
+    NSFetchRequest *reqLocations = [NSFetchRequest fetchRequestWithEntityName:[RGSLocation entityName]];
+    reqLocations.sortDescriptors =@[[NSSortDescriptor sortDescriptorWithKey:RGSLocationAttributes.address
+                                                                  ascending:YES
+                                                                   selector:@selector(caseInsensitiveCompare:)]];
+    NSFetchedResultsController *fcLocations = [[NSFetchedResultsController alloc] initWithFetchRequest:reqLocations
+                                                                                  managedObjectContext:self.model.context
+                                                                                    sectionNameKeyPath:nil
+                                                                                             cacheName:nil];
+    
+    // creamos un mapVC para mostrar las locations
+    RGSLocationViewController *mapVC = [[RGSLocationViewController alloc] initWithFechedResultsController:fcLocations];
+    mapVC.tabBarItem.title = @"Mapa";
+    
+    //cambiamos el rootVC por un tabVC
+    UITabBarController *tabVC = [[UITabBarController alloc] init];
+    
+    [tabVC setViewControllers:@[navVC, mapVC] animated:YES];
+    
+    self.window.rootViewController = tabVC;
     
     [self.window makeKeyAndVisible];
     
