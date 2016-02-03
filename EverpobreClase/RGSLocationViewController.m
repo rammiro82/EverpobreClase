@@ -74,7 +74,22 @@
     [super viewDidAppear:animated];
     
     if (self.hasLocationSSS) { // muchas locations
-        self.mapView.centerCoordinate = self.modelArray.firstObject.coordinate;
+        
+        // por cortesía de andrewgleave/iOSMapKitFitAnnotations.m
+        // repo https://gist.github.com/andrewgleave/915374
+        MKMapRect zoomRect = MKMapRectNull;
+        for (id <MKAnnotation> annotation in self.mapView.annotations) {
+            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+            if (MKMapRectIsNull(zoomRect)) {
+                zoomRect = pointRect;
+            } else {
+                zoomRect = MKMapRectUnion(zoomRect, pointRect);
+            }
+        }
+        [self.mapView setVisibleMapRect:zoomRect
+                            edgePadding:UIEdgeInsetsMake(10, 10, 10, 10)
+                               animated:YES];
         
     }else if(nil != self.model){// una sola location
         // asignar region y animar
