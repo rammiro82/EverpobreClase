@@ -47,10 +47,8 @@
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    if (self.hasLocationSSS) {
-        // mapa con muchas locations
-        [self.mapView removeAnnotations:self.modelArray];
-        NSError *error;
+    if(nil == self.model){
+        [self.mapView removeAnnotations:self.modelArray];NSError *error;
         [self.frc performFetch:&error];
         if (error) NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);
         
@@ -105,7 +103,5 @@
 - (IBAction)hybridMap:(id)sender {
     self.mapView.mapType = MKMapTypeHybrid;
 }
-
-#pragma mark - MKMapViewDelegate
 
 @end
